@@ -1,6 +1,5 @@
 package com.thierrylavoie.androidapp.domain
 
-import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 
@@ -20,22 +19,13 @@ class ClockGameEngineTest {
     }
 
     @Test
-    fun readClockAnswer_validatesAmPm() {
+    fun readClockAnswer_matchesDisplayedHourAndMinute() {
         val target = ClockTime(hour12 = 20, minute = 45)
-        val wrongAmResult = engine.checkReadClockAnswer(
+        val result = engine.checkReadClockAnswer(
             target = target,
             enteredHour = 8,
-            enteredMinute = 45,
-            isPm = false
+            enteredMinute = 45
         )
-        assertFalse(wrongAmResult)
-
-        val rightPmResult = engine.checkReadClockAnswer(
-            target = target,
-            enteredHour = 8,
-            enteredMinute = 45,
-            isPm = true
-        )
-        assertTrue(rightPmResult)
+        assertTrue(result)
     }
 }

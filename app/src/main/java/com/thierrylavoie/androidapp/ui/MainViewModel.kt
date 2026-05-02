@@ -32,8 +32,8 @@ class MainViewModel(
         return isCorrect
     }
 
-    fun submitReadClockAnswer(hour: Int, minute: Int, isPm: Boolean): Boolean {
-        val isCorrect = gameEngine.checkReadClockAnswer(currentTarget, hour, minute, isPm)
+    fun submitReadClockAnswer(hour: Int, minute: Int): Boolean {
+        val isCorrect = gameEngine.checkReadClockAnswer(currentTarget, hour, minute)
         updateScore(isCorrect)
         return isCorrect
     }

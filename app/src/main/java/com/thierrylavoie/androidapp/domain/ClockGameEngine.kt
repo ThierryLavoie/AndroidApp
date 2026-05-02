@@ -42,19 +42,11 @@ class ClockGameEngine(
         return targetHour == selectedHourHand && target.minute == selectedMinute
     }
 
-    fun checkReadClockAnswer(target: ClockTime, enteredHour: Int, enteredMinute: Int, isPm: Boolean): Boolean {
+    fun checkReadClockAnswer(target: ClockTime, enteredHour: Int, enteredMinute: Int): Boolean {
         if (enteredHour !in 1..12 || enteredMinute !in 0..59) {
             return false
         }
-
-        val enteredHour24 = when {
-            enteredHour == 12 && !isPm -> 0
-            enteredHour == 12 && isPm -> 12
-            isPm -> enteredHour + 12
-            else -> enteredHour
-        }
-
-        return target.hour12 == enteredHour24 && target.minute == enteredMinute
+        return toDisplayHour(target.hour12) == enteredHour && target.minute == enteredMinute
     }
 
     fun toDisplayHour(hour24: Int): Int {

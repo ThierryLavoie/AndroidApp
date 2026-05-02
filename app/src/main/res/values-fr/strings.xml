@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">AndroidApp</string>
+    <string name="title">Jeu d\'horloge</string>
+    <string name="game_subtitle">Entraînez votre lecture de l\'heure</string>
+    <string name="language_label">Langue</string>
+    <string name="mode_label">Mode de jeu</string>
+    <string name="instructions_label">Instructions</string>
+    <string name="language_english">Anglais</string>
+    <string name="language_french">Français</string>
+    <string name="score_initial">Score : 0/0</string>
+    <string name="score_format">Score : %1$d/%2$d</string>
+    <string name="landing_title">Brain Trainer</string>
+    <string name="landing_subtitle">Choisissez un jeu pour vous entraîner</string>
+    <string name="btn_clock_game">Jeu d\'horloge</string>
+    <string name="btn_mental_math">Calcul Mental</string>
+    <string name="math_title">Calcul Mental</string>
+    <string name="math_subtitle">Résolvez les opérations</string>
+    <string name="level_label">Niveau Scolaire</string>
+    <string name="grade_1">CP (1ère)</string>
+    <string name="grade_2">CE1 (2ème)</string>
+    <string name="grade_3">CE2 (3ème)</string>
+    <string name="grade_4">CM1 (4ème)</string>
+    <string name="grade_5">CM2+ (5ème+)</string>
+    <string name="math_prompt">Combien font %1$d %2$s %3$d ?</string>
+    <string name="math_answer_hint">Résultat</string>
+    <string name="submit_answer">Valider</string>
+    <string name="invalid_input">Veuillez entrer un nombre valide</string>
+    <string name="mode_set_hands">Placer les aiguilles</string>
+    <string name="mode_read_clock">Lire l\'horloge</string>
+    <string name="mode_set_hands_prompt">Placez l\'horloge à : %1$s</string>
+    <string name="mode_read_clock_prompt">Lisez l\'heure affichée sur l\'horloge.</string>
+    <string name="answer_time_label">Entrez l\'heure (mode Lire l\'horloge) :</string>
+    <string name="hour_hint">Heure</string>
+    <string name="minute_hint">Minute</string>
+    <string name="submit_hands_answer">Valider les aiguilles</string>
+    <string name="submit_time_answer">Valider l\'heure</string>
+    <string name="correct_feedback">Correct !</string>
+    <string name="wrong_feedback">Pas tout à fait. Bonne réponse : %1$s</string>
+    <string name="btn_back_to_menu">Menu Principal</string>
+</resources>

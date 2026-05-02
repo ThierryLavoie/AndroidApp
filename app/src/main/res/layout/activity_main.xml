@@ -1,166 +1,217 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="?attr/colorSurface"
     android:fillViewport="true">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        android:padding="12dp">
+        android:paddingHorizontal="16dp"
+        android:paddingTop="20dp"
+        android:paddingBottom="16dp">
 
         <TextView
             android:id="@+id/titleView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/title"
             android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+
+        <TextView
+            android:id="@+id/subtitleView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="4dp"
+            android:gravity="center"
+            android:text="@string/game_subtitle"
+            android:textAppearance="?attr/textAppearanceBodyMedium" />
 
         <TextView
             android:id="@+id/scoreView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
             android:text="@string/score_initial"
             android:textAppearance="?attr/textAppearanceBodyLarge" />
 
-        <RadioGroup
-            android:id="@+id/modeSelector"
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/modeSetHands"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/mode_set_hands" />
-
-            <RadioButton
-                android:id="@+id/modeReadClock"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="@string/mode_read_clock" />
-        </RadioGroup>
-
-        <TextView
-            android:id="@+id/promptView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textAppearance="?attr/textAppearanceBodyLarge" />
-
-        <com.thierrylavoie.androidapp.ui.AnalogClockView
-            android:id="@+id/analogClockView"
-            android:layout_width="match_parent"
-            android:layout_height="240dp"
-            android:layout_marginTop="8dp" />
-
-        <RadioGroup
-            android:id="@+id/handSelector"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="4dp"
-            android:orientation="horizontal">
-
-            <RadioButton
-                android:id="@+id/selectHourHand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:checked="true"
-                android:text="@string/hour_hand_label" />
-
-            <RadioButton
-                android:id="@+id/selectMinuteHand"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginStart="16dp"
-                android:text="@string/minute_hand_label" />
-        </RadioGroup>
-
-        <LinearLayout
-            android:id="@+id/readClockAnswerSection"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="@string/answer_time_label" />
+            android:layout_marginTop="14dp"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="false"
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeWidth="1dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="12dp">
 
-                <EditText
-                    android:id="@+id/answerHourInput"
-                    android:layout_width="0dp"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:hint="@string/hour_hint"
-                    android:inputType="number" />
+                    android:text="@string/language_label"
+                    android:textAppearance="?attr/textAppearanceLabelLarge" />
 
-                <EditText
-                    android:id="@+id/answerMinuteInput"
-                    android:layout_width="0dp"
+                <RadioGroup
+                    android:id="@+id/languageSelector"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_weight="1"
-                    android:hint="@string/minute_hint"
-                    android:inputType="number" />
+                    android:layout_marginTop="6dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/languageEnglish"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:text="@string/language_english" />
+
+                    <RadioButton
+                        android:id="@+id/languageFrench"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:minHeight="40dp"
+                        android:text="@string/language_french" />
+                </RadioGroup>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:text="@string/mode_label"
+                    android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+                <RadioGroup
+                    android:id="@+id/modeSelector"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:orientation="horizontal">
+
+                    <RadioButton
+                        android:id="@+id/modeSetHands"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:minHeight="40dp"
+                        android:text="@string/mode_set_hands" />
+
+                    <RadioButton
+                        android:id="@+id/modeReadClock"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:minHeight="40dp"
+                        android:text="@string/mode_read_clock" />
+                </RadioGroup>
             </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-            <RadioGroup
-                android:id="@+id/answerPeriodSelector"
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="14dp"
+            app:cardCornerRadius="16dp"
+            app:cardUseCompatPadding="false"
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeWidth="1dp">
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="6dp"
-                android:orientation="horizontal">
+                android:orientation="vertical"
+                android:padding="12dp">
 
-                <RadioButton
-                    android:id="@+id/answerAm"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:checked="true"
-                    android:text="@string/am_label" />
+                    android:text="@string/instructions_label"
+                    android:textAppearance="?attr/textAppearanceLabelLarge" />
 
-                <RadioButton
-                    android:id="@+id/answerPm"
-                    android:layout_width="wrap_content"
+                <TextView
+                    android:id="@+id/promptView"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="16dp"
-                    android:text="@string/pm_label" />
-            </RadioGroup>
-        </LinearLayout>
+                    android:layout_marginTop="4dp"
+                    android:textAppearance="?attr/textAppearanceBodyLarge" />
 
-        <LinearLayout
+                <com.thierrylavoie.androidapp.ui.AnalogClockView
+                    android:id="@+id/analogClockView"
+                    android:layout_width="match_parent"
+                    android:layout_height="260dp"
+                    android:layout_marginTop="8dp" />
+
+                <LinearLayout
+                    android:id="@+id/readClockAnswerSection"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="8dp"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="@string/answer_time_label"
+                        android:textAppearance="?attr/textAppearanceLabelLarge" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="6dp"
+                        android:orientation="horizontal">
+
+                        <EditText
+                            android:id="@+id/answerHourInput"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:hint="@string/hour_hint"
+                            android:inputType="number" />
+
+                        <EditText
+                            android:id="@+id/answerMinuteInput"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
+                            android:hint="@string/minute_hint"
+                            android:inputType="number" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/submitButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:minHeight="48dp"
+                    android:text="@string/submit_hands_answer" />
+
+                <TextView
+                    android:id="@+id/feedbackView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:textAppearance="?attr/textAppearanceBodyLarge" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:id="@+id/btnBackToMenu"
+            style="@style/Widget.Material3.Button.TextButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:orientation="horizontal">
-
-            <Button
-                android:id="@+id/submitButton"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/submit_hands_answer" />
-
-        </LinearLayout>
-
-        <TextView
-            android:id="@+id/feedbackView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:textAppearance="?attr/textAppearanceBodyLarge" />
+            android:layout_marginTop="16dp"
+            android:text="@string/btn_back_to_menu" />
 
     </LinearLayout>
 </ScrollView>

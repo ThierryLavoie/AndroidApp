@@ -18,7 +18,7 @@ class AnalogClockView @JvmOverloads constructor(
     context: Context,
     attrs: AttributeSet? = null
 ) : View(context, attrs) {
-    enum class ActiveHand {
+    private enum class ActiveHand {
         HOUR,
         MINUTE
     }
@@ -75,7 +75,7 @@ class AnalogClockView @JvmOverloads constructor(
         private set
 
     var onTimeChanged: ((hour: Int, minute: Int) -> Unit)? = null
-    var activeHand: ActiveHand = ActiveHand.HOUR
+    private var activeHand: ActiveHand = ActiveHand.HOUR
 
     fun setDisplayedTime(hour: Int, minute: Int) {
         selectedHour = hour.coerceIn(1, 12)
@@ -100,21 +100,61 @@ class AnalogClockView @JvmOverloads constructor(
 
     override fun onTouchEvent(event: MotionEvent): Boolean {
         if (!isInteractive) return false
-        if (event.action != MotionEvent.ACTION_DOWN && event.action != MotionEvent.ACTION_MOVE) return false
 
-        val angle = pointToClockAngle(event.x, event.y)
-        val snap = ((angle / 30f).roundToInt() % 12 + 12) % 12
+        when (event.action) {
+            MotionEvent.ACTION_DOWN -> {
+                activeHand = nearestHand(event.x, event.y)
+                updateTimeFromTouch(event.x, event.y)
+                parent.requestDisallowInterceptTouchEvent(true)
+                return true
+            }
+            MotionEvent.ACTION_MOVE -> {
+                updateTimeFromTouch(event.x, event.y)
+                return true
+            }
+            MotionEvent.ACTION_UP -> {
+                performClick()
+                return true
+            }
+        }
+        return super.onTouchEvent(event)
+    }
+
+    override fun performClick(): Boolean {
+        return super.performClick()
+    }
+
+    private fun updateTimeFromTouch(x: Float, y: Float) {
+        val angle = pointToClockAngle(x, y)
         when (activeHand) {
             ActiveHand.HOUR -> {
+                val snap = ((angle / 30f).roundToInt() % 12 + 12) % 12
                 selectedHour = if (snap == 0) 12 else snap
             }
             ActiveHand.MINUTE -> {
-                selectedMinute = snap * 5
+                val snap = ((angle / 6f).roundToInt() % 60 + 60) % 60
+                selectedMinute = snap
             }
         }
         onTimeChanged?.invoke(selectedHour, selectedMinute)
         invalidate()
-        return true
+    }
+
+    private fun nearestHand(touchX: Float, touchY: Float): ActiveHand {
+        val touchAngle = pointToClockAngle(touchX, touchY)
+
+        val minuteAngle = (selectedMinute * 6f) % 360
+        val hourAngle = ((selectedHour % 12) * 30f + (selectedMinute / 60f) * 30f) % 360
+
+        val distToMinute = angularDistance(touchAngle, minuteAngle)
+        val distToHour = angularDistance(touchAngle, hourAngle)
+
+        return if (distToHour < distToMinute) ActiveHand.HOUR else ActiveHand.MINUTE
+    }
+
+    private fun angularDistance(a1: Float, a2: Float): Float {
+        val diff = Math.abs(a1 - a2) % 360
+        return if (diff > 180) 360 - diff else diff
     }
 
     private fun drawTicks(canvas: Canvas, cx: Float, cy: Float, radius: Float) {

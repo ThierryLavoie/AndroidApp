@@ -4,11 +4,12 @@ import android.os.Bundle
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
-import android.widget.RadioButton
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.activity.viewModels
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.thierrylavoie.androidapp.domain.ClockGameEngine
@@ -26,27 +27,26 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
         val modeSelector = findViewById<RadioGroup>(R.id.modeSelector)
         val promptView = findViewById<TextView>(R.id.promptView)
         val scoreView = findViewById<TextView>(R.id.scoreView)
         val feedbackView = findViewById<TextView>(R.id.feedbackView)
+        val languageSelector = findViewById<RadioGroup>(R.id.languageSelector)
         val analogClockView = findViewById<AnalogClockView>(R.id.analogClockView)
-        val handSelector = findViewById<RadioGroup>(R.id.handSelector)
         val readClockAnswerSection = findViewById<View>(R.id.readClockAnswerSection)
-        val selectHourHand = findViewById<RadioButton>(R.id.selectHourHand)
         val answerHourInput = findViewById<EditText>(R.id.answerHourInput)
         val answerMinuteInput = findViewById<EditText>(R.id.answerMinuteInput)
-        val answerPeriodSelector = findViewById<RadioGroup>(R.id.answerPeriodSelector)
         val submitButton = findViewById<Button>(R.id.submitButton)
+        val btnBackToMenu = findViewById<Button>(R.id.btnBackToMenu)
+
+        btnBackToMenu.setOnClickListener { finish() }
 
         fun updateModeUi() {
             val setHandsMode = viewModel.mode == GameMode.SET_HANDS
             analogClockView.isInteractive = setHandsMode
             readClockAnswerSection.visibility = if (setHandsMode) View.GONE else View.VISIBLE
-            handSelector.isEnabled = setHandsMode
-            for (i in 0 until handSelector.childCount) {
-                handSelector.getChildAt(i).isEnabled = setHandsMode
-            }
             submitButton.text = if (setHandsMode) {
                 getString(R.string.submit_hands_answer)
             } else {
@@ -54,9 +54,6 @@ class MainActivity : AppCompatActivity() {
             }
             answerHourInput.isEnabled = !setHandsMode
             answerMinuteInput.isEnabled = !setHandsMode
-            for (i in 0 until answerPeriodSelector.childCount) {
-                answerPeriodSelector.getChildAt(i).isEnabled = !setHandsMode
-            }
         }
 
         fun updateScoreText() {
@@ -81,7 +78,6 @@ class MainActivity : AppCompatActivity() {
         fun clearReadClockInputs() {
             answerHourInput.text?.clear()
             answerMinuteInput.text?.clear()
-            answerPeriodSelector.check(R.id.answerAm)
         }
 
         fun goToNextRound() {
@@ -94,15 +90,35 @@ class MainActivity : AppCompatActivity() {
             // no-op: the clock is visual-only for gameplay
         }
 
-        handSelector.setOnCheckedChangeListener { _, checkedId ->
-            analogClockView.activeHand = if (checkedId == R.id.selectMinuteHand) {
-                AnalogClockView.ActiveHand.MINUTE
+        fun syncRadiosFromStateWithoutFiringListeners() {
+            languageSelector.setOnCheckedChangeListener(null)
+            val appLanguage = AppCompatDelegate.getApplicationLocales()[0]?.language ?: "en"
+            if (appLanguage.startsWith("fr")) {
+                languageSelector.check(R.id.languageFrench)
             } else {
-                AnalogClockView.ActiveHand.HOUR
+                languageSelector.check(R.id.languageEnglish)
+            }
+
+            modeSelector.setOnCheckedChangeListener(null)
+            when (viewModel.mode) {
+                GameMode.SET_HANDS -> modeSelector.check(R.id.modeSetHands)
+                GameMode.READ_CLOCK -> modeSelector.check(R.id.modeReadClock)
+            }
+        }
+
+        syncRadiosFromStateWithoutFiringListeners()
+
+        languageSelector.setOnCheckedChangeListener { _, checkedId ->
+            if (checkedId == View.NO_ID) return@setOnCheckedChangeListener
+            val lang = if (checkedId == R.id.languageFrench) "fr" else "en"
+            val currentLang = AppCompatDelegate.getApplicationLocales()[0]?.language ?: "en"
+            if (lang != currentLang) {
+                AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(lang))
             }
         }
 
         modeSelector.setOnCheckedChangeListener { _, checkedId ->
+            if (checkedId == View.NO_ID) return@setOnCheckedChangeListener
             val selectedMode = if (checkedId == R.id.modeSetHands) {
                 GameMode.SET_HANDS
             } else {
@@ -120,8 +136,7 @@ class MainActivity : AppCompatActivity() {
             } else {
                 val enteredHour = answerHourInput.text.toString().toIntOrNull() ?: -1
                 val enteredMinute = answerMinuteInput.text.toString().toIntOrNull() ?: -1
-                val isPm = answerPeriodSelector.checkedRadioButtonId == R.id.answerPm
-                viewModel.submitReadClockAnswer(enteredHour, enteredMinute, isPm)
+                viewModel.submitReadClockAnswer(enteredHour, enteredMinute)
             }
 
             feedbackView.text = if (isCorrect) {
@@ -135,14 +150,21 @@ class MainActivity : AppCompatActivity() {
 
         updateModeUi()
         updateScoreText()
-        selectHourHand.isChecked = true
-        analogClockView.activeHand = AnalogClockView.ActiveHand.HOUR
         renderPrompt()
+    }
+
+    override fun onSupportNavigateUp(): Boolean {
+        finish()
+        return true
     }
 }
 
 private class MainViewModelFactory : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        return MainViewModel(ClockGameEngine()) as T
+        if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
+            @Suppress("UNCHECKED_CAST")
+            return MainViewModel(ClockGameEngine()) as T
+        }
+        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
