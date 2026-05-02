@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">AndroidApp</string>
+    <string name="title">Clock Game</string>
+    <string name="score_initial">Score: 0/0</string>
+    <string name="score_format">Score: %1$d/%2$d</string>
+    <string name="mode_set_hands">Set Hands</string>
+    <string name="mode_read_clock">Read Clock</string>
+    <string name="mode_set_hands_prompt">Set the clock to: %1$s</string>
+    <string name="mode_read_clock_prompt">Read the time shown on the clock image.</string>
+    <string name="hour_hand_label">Hour hand</string>
+    <string name="minute_hand_label">Minute hand</string>
+    <string name="answer_time_label">Enter the time (for Read Clock mode):</string>
+    <string name="hour_hint">Hour</string>
+    <string name="minute_hint">Minute</string>
+    <string name="am_label">AM</string>
+    <string name="pm_label">PM</string>
+    <string name="submit_hands_answer">Submit Hands Answer</string>
+    <string name="submit_time_answer">Submit Time Answer</string>
+    <string name="correct_feedback">Correct!</string>
+    <string name="wrong_feedback">Not quite. Correct answer: %1$s</string>
+</resources>
