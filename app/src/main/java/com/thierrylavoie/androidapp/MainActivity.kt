@@ -7,9 +7,7 @@ import android.widget.EditText
 import android.widget.RadioGroup
 import android.widget.TextView
 import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.os.LocaleListCompat
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 import com.thierrylavoie.androidapp.domain.ClockGameEngine
@@ -20,7 +18,7 @@ import com.thierrylavoie.androidapp.ui.MainViewModel
 class MainActivity : AppCompatActivity() {
 
     private val viewModel: MainViewModel by viewModels {
-        MainViewModelFactory()
+        MainViewModelFactory(applicationContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,13 +31,13 @@ class MainActivity : AppCompatActivity() {
         val promptView = findViewById<TextView>(R.id.promptView)
         val scoreView = findViewById<TextView>(R.id.scoreView)
         val feedbackView = findViewById<TextView>(R.id.feedbackView)
-        val languageSelector = findViewById<RadioGroup>(R.id.languageSelector)
         val analogClockView = findViewById<AnalogClockView>(R.id.analogClockView)
         val readClockAnswerSection = findViewById<View>(R.id.readClockAnswerSection)
         val answerHourInput = findViewById<EditText>(R.id.answerHourInput)
         val answerMinuteInput = findViewById<EditText>(R.id.answerMinuteInput)
         val submitButton = findViewById<Button>(R.id.submitButton)
         val btnBackToMenu = findViewById<Button>(R.id.btnBackToMenu)
+        val totalPointsView = findViewById<TextView>(R.id.totalPointsView)
 
         btnBackToMenu.setOnClickListener { finish() }
 
@@ -62,6 +60,7 @@ class MainActivity : AppCompatActivity() {
                 viewModel.score,
                 viewModel.roundsPlayed
             )
+            totalPointsView.text = getString(R.string.user_points_format, viewModel.totalPoints)
         }
 
         fun renderPrompt() {
@@ -91,14 +90,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         fun syncRadiosFromStateWithoutFiringListeners() {
-            languageSelector.setOnCheckedChangeListener(null)
-            val appLanguage = AppCompatDelegate.getApplicationLocales()[0]?.language ?: "en"
-            if (appLanguage.startsWith("fr")) {
-                languageSelector.check(R.id.languageFrench)
-            } else {
-                languageSelector.check(R.id.languageEnglish)
-            }
-
             modeSelector.setOnCheckedChangeListener(null)
             when (viewModel.mode) {
                 GameMode.SET_HANDS -> modeSelector.check(R.id.modeSetHands)
@@ -107,15 +98,6 @@ class MainActivity : AppCompatActivity() {
         }
 
         syncRadiosFromStateWithoutFiringListeners()
-
-        languageSelector.setOnCheckedChangeListener { _, checkedId ->
-            if (checkedId == View.NO_ID) return@setOnCheckedChangeListener
-            val lang = if (checkedId == R.id.languageFrench) "fr" else "en"
-            val currentLang = AppCompatDelegate.getApplicationLocales()[0]?.language ?: "en"
-            if (lang != currentLang) {
-                AppCompatDelegate.setApplicationLocales(LocaleListCompat.forLanguageTags(lang))
-            }
-        }
 
         modeSelector.setOnCheckedChangeListener { _, checkedId ->
             if (checkedId == View.NO_ID) return@setOnCheckedChangeListener
@@ -159,11 +141,12 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-private class MainViewModelFactory : ViewModelProvider.Factory {
+private class MainViewModelFactory(private val context: android.content.Context) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return MainViewModel(ClockGameEngine()) as T
+            val repository = com.thierrylavoie.androidapp.domain.UserStatsRepository(context)
+            return MainViewModel(ClockGameEngine(), repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

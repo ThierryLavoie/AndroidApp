@@ -22,6 +22,10 @@
             android:name=".MentalCalculationActivity"
             android:exported="false"
             android:label="@string/math_title" />
+        <activity
+            android:name=".ReadingGameActivity"
+            android:exported="false"
+            android:label="@string/reading_title" />
     </application>
 
 </manifest>

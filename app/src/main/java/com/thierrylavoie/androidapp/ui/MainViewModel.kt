@@ -4,9 +4,11 @@ import androidx.lifecycle.ViewModel
 import com.thierrylavoie.androidapp.domain.ClockGameEngine
 import com.thierrylavoie.androidapp.domain.ClockTime
 import com.thierrylavoie.androidapp.domain.GameMode
+import com.thierrylavoie.androidapp.domain.UserStatsRepository
 
 class MainViewModel(
-    private val gameEngine: ClockGameEngine
+    private val gameEngine: ClockGameEngine,
+    private val statsRepository: UserStatsRepository
 ) : ViewModel() {
 
     var mode: GameMode = GameMode.SET_HANDS
@@ -20,6 +22,9 @@ class MainViewModel(
 
     var currentTarget: ClockTime = gameEngine.nextRound()
         private set
+
+    val totalPoints: Int
+        get() = statsRepository.totalPoints
 
     fun setMode(newMode: GameMode) {
         mode = newMode
@@ -50,6 +55,7 @@ class MainViewModel(
         roundsPlayed += 1
         if (isCorrect) {
             score += 1
+            statsRepository.addPoints(10)
         }
     }
 }

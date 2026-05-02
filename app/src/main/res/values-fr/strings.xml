@@ -10,10 +10,15 @@
     <string name="language_french">Français</string>
     <string name="score_initial">Score : 0/0</string>
     <string name="score_format">Score : %1$d/%2$d</string>
-    <string name="landing_title">Brain Trainer</string>
+    <string name="landing_title">Entraînement Cérébral</string>
     <string name="landing_subtitle">Choisissez un jeu pour vous entraîner</string>
+    <string name="user_points_format">Total des points : %1$d</string>
+    <string name="user_rank_format">Rang : %1$s</string>
     <string name="btn_clock_game">Jeu d\'horloge</string>
     <string name="btn_mental_math">Calcul Mental</string>
+    <string name="btn_reading_game">Lecture en Français</string>
+    <string name="reading_title">Lecture en Français</string>
+    <string name="reading_subtitle">Lisez le texte et répondez à la question</string>
     <string name="math_title">Calcul Mental</string>
     <string name="math_subtitle">Résolvez les opérations</string>
     <string name="level_label">Niveau Scolaire</string>

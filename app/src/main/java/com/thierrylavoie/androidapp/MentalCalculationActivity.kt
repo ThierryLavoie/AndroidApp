@@ -16,7 +16,7 @@ import com.thierrylavoie.androidapp.ui.MentalMathViewModel
 class MentalCalculationActivity : AppCompatActivity() {
 
     private val viewModel: MentalMathViewModel by viewModels {
-        MentalMathViewModelFactory()
+        MentalMathViewModelFactory(applicationContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,6 +32,7 @@ class MentalCalculationActivity : AppCompatActivity() {
         val submitButton = findViewById<Button>(R.id.submitButton)
         val levelSelector = findViewById<RadioGroup>(R.id.levelSelector)
         val btnBackToMenu = findViewById<Button>(R.id.btnBackToMenu)
+        val totalPointsView = findViewById<TextView>(R.id.totalPointsView)
 
         btnBackToMenu.setOnClickListener { finish() }
 
@@ -41,6 +42,7 @@ class MentalCalculationActivity : AppCompatActivity() {
                 viewModel.score,
                 viewModel.roundsPlayed
             )
+            totalPointsView.text = getString(R.string.user_points_format, viewModel.totalPoints)
         }
 
         fun renderPrompt() {
@@ -102,11 +104,12 @@ class MentalCalculationActivity : AppCompatActivity() {
     }
 }
 
-private class MentalMathViewModelFactory : ViewModelProvider.Factory {
+private class MentalMathViewModelFactory(private val context: android.content.Context) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MentalMathViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            return MentalMathViewModel(MentalMathEngine()) as T
+            val repository = com.thierrylavoie.androidapp.domain.UserStatsRepository(context)
+            return MentalMathViewModel(MentalMathEngine(), repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

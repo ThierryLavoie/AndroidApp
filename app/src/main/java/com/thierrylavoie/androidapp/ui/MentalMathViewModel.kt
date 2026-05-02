@@ -4,8 +4,12 @@ import androidx.lifecycle.ViewModel
 import com.thierrylavoie.androidapp.domain.MathLevel
 import com.thierrylavoie.androidapp.domain.MathOperation
 import com.thierrylavoie.androidapp.domain.MentalMathEngine
+import com.thierrylavoie.androidapp.domain.UserStatsRepository
 
-class MentalMathViewModel(private val engine: MentalMathEngine) : ViewModel() {
+class MentalMathViewModel(
+    private val engine: MentalMathEngine,
+    private val statsRepository: UserStatsRepository
+) : ViewModel() {
     var score = 0
         private set
     var roundsPlayed = 0
@@ -14,6 +18,9 @@ class MentalMathViewModel(private val engine: MentalMathEngine) : ViewModel() {
         private set
     var level: MathLevel = MathLevel.GRADE_1
         private set
+
+    val totalPoints: Int
+        get() = statsRepository.totalPoints
 
     init {
         startNextRound()
@@ -35,6 +42,14 @@ class MentalMathViewModel(private val engine: MentalMathEngine) : ViewModel() {
         val isCorrect = engine.checkAnswer(currentOperation, answer)
         if (isCorrect) {
             score++
+            val points = when(level) {
+                MathLevel.GRADE_1 -> 5
+                MathLevel.GRADE_2 -> 10
+                MathLevel.GRADE_3 -> 15
+                MathLevel.GRADE_4 -> 20
+                MathLevel.GRADE_5 -> 25
+            }
+            statsRepository.addPoints(points)
         }
         return isCorrect
     }

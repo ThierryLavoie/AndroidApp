@@ -11,8 +11,13 @@
     <string name="score_format">Score: %1$d/%2$d</string>
     <string name="landing_title">Brain Trainer</string>
     <string name="landing_subtitle">Choose a game to start training</string>
+    <string name="user_points_format">Total Points: %1$d</string>
+    <string name="user_rank_format">Rank: %1$s</string>
     <string name="btn_clock_game">Clock Game</string>
     <string name="btn_mental_math">Mental Calculation</string>
+    <string name="btn_reading_game">French Reading</string>
+    <string name="reading_title">French Reading</string>
+    <string name="reading_subtitle">Read the text and answer the question</string>
     <string name="math_title">Mental Calculation</string>
     <string name="math_subtitle">Solve the operations</string>
     <string name="level_label">Grade Level</string>
