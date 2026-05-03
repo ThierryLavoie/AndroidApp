@@ -1,109 +1,182 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:padding="24dp">
+    android:background="?attr/colorSurface">
 
-    <TextView
-        android:id="@+id/landingTitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/landing_title"
-        android:textAppearance="?attr/textAppearanceHeadlineMedium"
-        android:textColor="?attr/colorOnSurface" />
-
-    <TextView
-        android:id="@+id/landingSubtitle"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:text="@string/landing_subtitle"
-        android:textAppearance="?attr/textAppearanceBodyLarge"
-        android:textColor="?attr/colorOnSurfaceVariant" />
-
-    <com.google.android.material.card.MaterialCardView
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        app:cardCornerRadius="16dp"
-        app:cardElevation="0dp"
-        app:strokeColor="?attr/colorOutlineVariant"
-        app:strokeWidth="1dp">
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="24dp">
 
-        <LinearLayout
+        <TextView
+            android:id="@+id/landingTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/landing_title"
+            android:textAppearance="?attr/textAppearanceHeadlineMedium"
+            android:textColor="?attr/colorOnSurface" />
+
+        <TextView
+            android:id="@+id/landingSubtitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/landing_subtitle"
+            android:textAppearance="?attr/textAppearanceBodyLarge"
+            android:textColor="?attr/colorOnSurfaceVariant" />
+
+        <!-- Avatar Section -->
+        <FrameLayout
+            android:id="@+id/avatarContainer"
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_marginTop="24dp"
+            android:background="@drawable/avatar_bg">
+
+            <TextView
+                android:id="@+id/avatarBase"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="20dp"
+                android:text="😶"
+                android:textSize="100sp" />
+
+            <TextView
+                android:id="@+id/avatarHat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="top|center_horizontal"
+                android:layout_marginTop="10dp"
+                android:textSize="64sp" />
+
+            <TextView
+                android:id="@+id/avatarGlasses"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginBottom="25dp"
+                android:textSize="48sp" />
+
+            <TextView
+                android:id="@+id/avatarChest"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|center_horizontal"
+                android:layout_marginBottom="10dp"
+                android:textSize="44sp" />
+
+            <TextView
+                android:id="@+id/avatarCompanion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom|end"
+                android:layout_marginEnd="15dp"
+                android:layout_marginBottom="15dp"
+                android:textSize="48sp" />
+        </FrameLayout>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnShop"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:text="@string/btn_shop" />
+
+        <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center"
-            android:orientation="vertical"
-            android:padding="16dp">
+            android:layout_marginTop="16dp"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="0dp"
+            app:strokeColor="?attr/colorOutlineVariant"
+            app:strokeWidth="1dp">
 
-            <TextView
-                android:id="@+id/totalPointsView"
-                android:layout_width="wrap_content"
+            <LinearLayout
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/user_points_format"
-                android:textAppearance="?attr/textAppearanceTitleLarge" />
+                android:gravity="center"
+                android:orientation="vertical"
+                android:padding="16dp">
 
-            <TextView
-                android:id="@+id/userRankView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="4dp"
-                android:text="@string/user_rank_format"
-                android:textAppearance="?attr/textAppearanceBodyMedium" />
-        </LinearLayout>
-    </com.google.android.material.card.MaterialCardView>
+                <TextView
+                    android:id="@+id/totalPointsView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/user_points_format"
+                    android:textAppearance="?attr/textAppearanceTitleLarge" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnClockGame"
-        style="@style/Widget.Material3.Button.TonalButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:padding="16dp"
-        android:text="@string/btn_clock_game" />
+                <TextView
+                    android:id="@+id/userRankView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="4dp"
+                    android:text="@string/user_rank_format"
+                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnMentalMath"
-        style="@style/Widget.Material3.Button.TonalButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:padding="16dp"
-        android:text="@string/btn_mental_math" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnClockGame"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:padding="16dp"
+            android:text="@string/btn_clock_game" />
 
-    <com.google.android.material.button.MaterialButton
-        android:id="@+id/btnReadingGame"
-        style="@style/Widget.Material3.Button.TonalButton"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:padding="16dp"
-        android:text="@string/btn_reading_game" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnMentalMath"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:text="@string/btn_mental_math" />
 
-    <RadioGroup
-        android:id="@+id/languageSelector"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="48dp"
-        android:orientation="horizontal">
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReadingGame"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:text="@string/btn_reading_game" />
 
-        <RadioButton
-            android:id="@+id/languageEnglish"
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnReadingGameEn"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:text="@string/btn_reading_game_en" />
+
+        <RadioGroup
+            android:id="@+id/languageSelector"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/language_english" />
+            android:layout_marginTop="32dp"
+            android:orientation="horizontal">
 
-        <RadioButton
-            android:id="@+id/languageFrench"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:text="@string/language_french" />
-    </RadioGroup>
+            <RadioButton
+                android:id="@+id/languageEnglish"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/language_english" />
 
-</LinearLayout>
+            <RadioButton
+                android:id="@+id/languageFrench"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/language_french" />
+        </RadioGroup>
+
+    </LinearLayout>
+</ScrollView>

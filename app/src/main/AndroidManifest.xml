@@ -26,6 +26,14 @@
             android:name=".ReadingGameActivity"
             android:exported="false"
             android:label="@string/reading_title" />
+        <activity
+            android:name=".EnglishReadingGameActivity"
+            android:exported="false"
+            android:label="@string/reading_title_en" />
+        <activity
+            android:name=".ShopActivity"
+            android:exported="false"
+            android:label="@string/shop_title" />
     </application>
 
 </manifest>

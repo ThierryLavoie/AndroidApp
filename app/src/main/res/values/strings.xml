@@ -13,11 +13,26 @@
     <string name="landing_subtitle">Choose a game to start training</string>
     <string name="user_points_format">Total Points: %1$d</string>
     <string name="user_rank_format">Rank: %1$s</string>
+    <string name="btn_shop">Avatar Shop</string>
+    <string name="shop_title">Avatar Shop</string>
+    <string name="shop_buy">Buy (%1$d pts)</string>
+    <string name="item_price_format">%1$d pts</string>
+    <string name="shop_equip">Equip</string>
+    <string name="shop_equipped">Equipped</string>
+    <string name="not_enough_points">Not enough points!</string>
+    <string name="rank_novice">Novice</string>
+    <string name="rank_apprentice">Apprentice</string>
+    <string name="rank_scholar">Scholar</string>
+    <string name="rank_master">Master</string>
+    <string name="rank_grandmaster">Grandmaster</string>
     <string name="btn_clock_game">Clock Game</string>
     <string name="btn_mental_math">Mental Calculation</string>
     <string name="btn_reading_game">French Reading</string>
+    <string name="btn_reading_game_en">English Reading</string>
     <string name="reading_title">French Reading</string>
+    <string name="reading_title_en">English Reading</string>
     <string name="reading_subtitle">Read the text and answer the question</string>
+    <string name="reading_subtitle_en">Read the text and answer the question</string>
     <string name="math_title">Mental Calculation</string>
     <string name="math_subtitle">Solve the operations</string>
     <string name="level_label">Grade Level</string>
@@ -41,5 +56,7 @@
     <string name="submit_time_answer">Submit Time Answer</string>
     <string name="correct_feedback">Correct!</string>
     <string name="wrong_feedback">Not quite. Correct answer: %1$s</string>
+    <string name="game_over_reading">You have completed all questions!</string>
+    <string name="btn_restart">Restart Game</string>
     <string name="btn_back_to_menu">Main Menu</string>
 </resources>

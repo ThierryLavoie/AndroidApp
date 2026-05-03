@@ -10,14 +10,14 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.thierrylavoie.androidapp.domain.ReadingGameEngine
+import com.thierrylavoie.androidapp.domain.ReadingGameEngineEnglish
 import com.thierrylavoie.androidapp.domain.UserStatsRepository
-import com.thierrylavoie.androidapp.ui.ReadingGameViewModel
+import com.thierrylavoie.androidapp.ui.EnglishReadingGameViewModel
 
-class ReadingGameActivity : AppCompatActivity() {
+class EnglishReadingGameActivity : AppCompatActivity() {
 
-    private val viewModel: ReadingGameViewModel by viewModels {
-        ReadingGameViewModelFactory(applicationContext)
+    private val viewModel: EnglishReadingGameViewModel by viewModels {
+        EnglishReadingGameViewModelFactory(applicationContext)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -27,8 +27,8 @@ class ReadingGameActivity : AppCompatActivity() {
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
 
         val readingTitle = findViewById<TextView>(R.id.readingTitle)
-        readingTitle.text = getString(R.string.reading_title)
-
+        readingTitle.text = getString(R.string.reading_title_en)
+        
         val textContainer = findViewById<TextView>(R.id.textContainer)
         val questionContainer = findViewById<TextView>(R.id.questionContainer)
         val optionsGroup = findViewById<RadioGroup>(R.id.optionsGroup)
@@ -125,12 +125,12 @@ class ReadingGameActivity : AppCompatActivity() {
     }
 }
 
-private class ReadingGameViewModelFactory(private val context: android.content.Context) : ViewModelProvider.Factory {
+private class EnglishReadingGameViewModelFactory(private val context: android.content.Context) : ViewModelProvider.Factory {
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
-        if (modelClass.isAssignableFrom(ReadingGameViewModel::class.java)) {
+        if (modelClass.isAssignableFrom(EnglishReadingGameViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
             val repository = UserStatsRepository(context)
-            return ReadingGameViewModel(ReadingGameEngine(), repository) as T
+            return EnglishReadingGameViewModel(ReadingGameEngineEnglish(), repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")
     }

@@ -9,6 +9,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import com.google.android.material.button.MaterialButton
+import com.thierrylavoie.androidapp.domain.ShopManager
 import com.thierrylavoie.androidapp.domain.UserStatsRepository
 
 class LandingActivity : AppCompatActivity() {
@@ -24,7 +25,13 @@ class LandingActivity : AppCompatActivity() {
         val btnClockGame = findViewById<MaterialButton>(R.id.btnClockGame)
         val btnMentalMath = findViewById<MaterialButton>(R.id.btnMentalMath)
         val btnReadingGame = findViewById<MaterialButton>(R.id.btnReadingGame)
+        val btnReadingGameEn = findViewById<MaterialButton>(R.id.btnReadingGameEn)
+        val btnShop = findViewById<MaterialButton>(R.id.btnShop)
         val languageSelector = findViewById<RadioGroup>(R.id.languageSelector)
+
+        btnShop.setOnClickListener {
+            startActivity(Intent(this, ShopActivity::class.java))
+        }
 
         btnClockGame.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
@@ -36,6 +43,10 @@ class LandingActivity : AppCompatActivity() {
 
         btnReadingGame.setOnClickListener {
             startActivity(Intent(this, ReadingGameActivity::class.java))
+        }
+
+        btnReadingGameEn.setOnClickListener {
+            startActivity(Intent(this, EnglishReadingGameActivity::class.java))
         }
 
         syncLanguageSelector()
@@ -53,13 +64,39 @@ class LandingActivity : AppCompatActivity() {
     override fun onResume() {
         super.onResume()
         updateStatsUi()
+        updateAvatarUi()
+    }
+
+    private fun updateAvatarUi() {
+        val baseView = findViewById<TextView>(R.id.avatarBase)
+        val hatView = findViewById<TextView>(R.id.avatarHat)
+        val glassesView = findViewById<TextView>(R.id.avatarGlasses)
+        val chestView = findViewById<TextView>(R.id.avatarChest)
+        val companionView = findViewById<TextView>(R.id.avatarCompanion)
+
+        val equippedBaseId = statsRepository.getEquippedItem("BASE") ?: "base_default"
+        val equippedHatId = statsRepository.getEquippedItem("HAT")
+        val equippedGlassesId = statsRepository.getEquippedItem("GLASSES")
+        val equippedChestId = statsRepository.getEquippedItem("CHEST")
+        val equippedCompanionId = statsRepository.getEquippedItem("COMPANION")
+
+        baseView.text = ShopManager.items.find { it.id == equippedBaseId }?.icon ?: "😶"
+        hatView.text = ShopManager.items.find { it.id == equippedHatId }?.icon ?: ""
+        glassesView.text = ShopManager.items.find { it.id == equippedGlassesId }?.icon ?: ""
+        chestView.text = ShopManager.items.find { it.id == equippedChestId }?.icon ?: ""
+        companionView.text = ShopManager.items.find { it.id == equippedCompanionId }?.icon ?: ""
     }
 
     private fun updateStatsUi() {
         val totalPointsView = findViewById<TextView>(R.id.totalPointsView)
         val userRankView = findViewById<TextView>(R.id.userRankView)
         totalPointsView.text = getString(R.string.user_points_format, statsRepository.totalPoints)
-        userRankView.text = getString(R.string.user_rank_format, statsRepository.getRank())
+        
+        val rankKey = statsRepository.getRank()
+        val rankResId = resources.getIdentifier(rankKey, "string", packageName)
+        val rankString = if (rankResId != 0) getString(rankResId) else rankKey
+        
+        userRankView.text = getString(R.string.user_rank_format, rankString)
     }
 
     private fun syncLanguageSelector() {

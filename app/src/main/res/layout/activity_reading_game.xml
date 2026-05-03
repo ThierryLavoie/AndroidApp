@@ -12,6 +12,7 @@
         android:padding="16dp">
 
         <TextView
+            android:id="@+id/readingTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
@@ -95,6 +96,14 @@
                     android:layout_marginTop="8dp"
                     android:gravity="center"
                     android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+                <Button
+                    android:id="@+id/btnRestart"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:text="@string/btn_restart"
+                    android:visibility="gone" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 

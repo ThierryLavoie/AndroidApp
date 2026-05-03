@@ -14,11 +14,26 @@
     <string name="landing_subtitle">Choisissez un jeu pour vous entraîner</string>
     <string name="user_points_format">Total des points : %1$d</string>
     <string name="user_rank_format">Rang : %1$s</string>
+    <string name="btn_shop">Boutique d\'Avatar</string>
+    <string name="shop_title">Boutique d\'Avatar</string>
+    <string name="shop_buy">Acheter (%1$d pts)</string>
+    <string name="item_price_format">%1$d pts</string>
+    <string name="shop_equip">Équiper</string>
+    <string name="shop_equipped">Équipé</string>
+    <string name="not_enough_points">Pas assez de points !</string>
+    <string name="rank_novice">Novice</string>
+    <string name="rank_apprentice">Apprenti</string>
+    <string name="rank_scholar">Érudit</string>
+    <string name="rank_master">Maître</string>
+    <string name="rank_grandmaster">Grand Maître</string>
     <string name="btn_clock_game">Jeu d\'horloge</string>
     <string name="btn_mental_math">Calcul Mental</string>
     <string name="btn_reading_game">Lecture en Français</string>
+    <string name="btn_reading_game_en">Lecture en Anglais</string>
     <string name="reading_title">Lecture en Français</string>
+    <string name="reading_title_en">Lecture en Anglais</string>
     <string name="reading_subtitle">Lisez le texte et répondez à la question</string>
+    <string name="reading_subtitle_en">Lisez le texte et répondez à la question</string>
     <string name="math_title">Calcul Mental</string>
     <string name="math_subtitle">Résolvez les opérations</string>
     <string name="level_label">Niveau Scolaire</string>
@@ -42,5 +57,7 @@
     <string name="submit_time_answer">Valider l\'heure</string>
     <string name="correct_feedback">Correct !</string>
     <string name="wrong_feedback">Pas tout à fait. Bonne réponse : %1$s</string>
+    <string name="game_over_reading">Vous avez terminé toutes les questions !</string>
+    <string name="btn_restart">Recommencer</string>
     <string name="btn_back_to_menu">Menu Principal</string>
 </resources>

@@ -105,9 +105,7 @@ class ReadingGameEngine(
         )
     )
 
-    fun nextRound(): ReadingTask {
-        return tasks.random(random)
-    }
+    fun getAllTasks(): List<ReadingTask> = tasks
 
     fun checkAnswer(task: ReadingTask, selectedIndex: Int): Boolean {
         return task.correctOptionIndex == selectedIndex

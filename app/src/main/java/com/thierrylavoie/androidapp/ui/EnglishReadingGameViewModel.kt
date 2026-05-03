@@ -1,12 +1,12 @@
 package com.thierrylavoie.androidapp.ui
 
 import androidx.lifecycle.ViewModel
-import com.thierrylavoie.androidapp.domain.ReadingGameEngine
+import com.thierrylavoie.androidapp.domain.ReadingGameEngineEnglish
 import com.thierrylavoie.androidapp.domain.ReadingTask
 import com.thierrylavoie.androidapp.domain.UserStatsRepository
 
-class ReadingGameViewModel(
-    private val engine: ReadingGameEngine,
+class EnglishReadingGameViewModel(
+    private val engine: ReadingGameEngineEnglish,
     private val statsRepository: UserStatsRepository
 ) : ViewModel() {
     var score = 0

@@ -22,17 +22,44 @@ class UserStatsRepository(context: Context) {
         totalPoints += points
     }
 
+    fun spendPoints(points: Int): Boolean {
+        if (totalPoints >= points) {
+            totalPoints -= points
+            return true
+        }
+        return false
+    }
+
+    fun isItemUnlocked(itemId: String): Boolean {
+        val unlocked = prefs.getStringSet("unlocked_items", setOf("base_default")) ?: setOf("base_default")
+        return unlocked.contains(itemId)
+    }
+
+    fun unlockItem(itemId: String) {
+        val unlocked = prefs.getStringSet("unlocked_items", setOf("base_default"))?.toMutableSet() ?: mutableSetOf("base_default")
+        unlocked.add(itemId)
+        prefs.edit().putStringSet("unlocked_items", unlocked).apply()
+    }
+
+    fun getEquippedItem(category: String): String? {
+        return prefs.getString("equipped_$category", null)
+    }
+
+    fun equipItem(category: String, itemId: String?) {
+        prefs.edit().putString("equipped_$category", itemId).apply()
+    }
+
     fun incrementGamesPlayed() {
         totalGamesPlayed++
     }
 
     fun getRank(): String {
         return when {
-            totalPoints < 100 -> "Novice"
-            totalPoints < 500 -> "Apprentice"
-            totalPoints < 1500 -> "Scholar"
-            totalPoints < 3000 -> "Master"
-            else -> "Grandmaster"
+            totalPoints < 100 -> "rank_novice"
+            totalPoints < 500 -> "rank_apprentice"
+            totalPoints < 1500 -> "rank_scholar"
+            totalPoints < 3000 -> "rank_master"
+            else -> "rank_grandmaster"
         }
     }
 }
