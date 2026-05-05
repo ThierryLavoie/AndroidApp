@@ -72,4 +72,7 @@
     <string name="game_over_reading">You have completed all questions!</string>
     <string name="btn_restart">Restart Game</string>
     <string name="btn_back_to_menu">Main Menu</string>
+    <string name="btn_about">About &amp; Privacy</string>
+    <string name="about_title">About Ludo</string>
+    <string name="about_content">Ludo is an educational game designed to help children practice reading, math, and time-telling.\n\nPrivacy Policy: This app does not collect any personal data. All your points and avatar settings are stored locally on your device.</string>
 </resources>

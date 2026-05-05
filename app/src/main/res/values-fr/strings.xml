@@ -73,4 +73,7 @@
     <string name="game_over_reading">Vous avez terminé toutes les questions !</string>
     <string name="btn_restart">Recommencer</string>
     <string name="btn_back_to_menu">Menu Principal</string>
+    <string name="btn_about">À propos et Confidentialité</string>
+    <string name="about_title">À propos de Ludo</string>
+    <string name="about_content">Ludo est un jeu éducatif conçu pour aider les enfants à pratiquer la lecture, le calcul et l\'heure.\n\nPolitique de confidentialité : Cette application ne collecte aucune donnée personnelle. Vos points et vos paramètres d\'avatar sont stockés localement sur votre appareil.</string>
 </resources>

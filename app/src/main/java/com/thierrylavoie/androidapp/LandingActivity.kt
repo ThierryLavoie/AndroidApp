@@ -53,6 +53,10 @@ class LandingActivity : AppCompatActivity() {
             startActivity(Intent(this, EnglishReadingGameActivity::class.java))
         }
 
+        findViewById<View>(R.id.btnAbout).setOnClickListener {
+            showAboutDialog()
+        }
+
         syncLanguageSelector()
 
         languageSelector.setOnCheckedChangeListener { _, checkedId ->
@@ -128,5 +132,13 @@ class LandingActivity : AppCompatActivity() {
         } else {
             languageSelector.check(R.id.languageEnglish)
         }
+    }
+
+    private fun showAboutDialog() {
+        androidx.appcompat.app.AlertDialog.Builder(this)
+            .setTitle(R.string.about_title)
+            .setMessage(R.string.about_content)
+            .setPositiveButton(android.R.string.ok, null)
+            .show()
     }
 }

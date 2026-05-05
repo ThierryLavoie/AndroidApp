@@ -216,5 +216,15 @@
                 android:buttonTint="@color/playful_blue" />
         </RadioGroup>
 
+        <Button
+            android:id="@+id/btnAbout"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/btn_about"
+            android:textColor="#78909C"
+            android:textSize="12sp" />
+
     </LinearLayout>
 </ScrollView>
