@@ -12,12 +12,20 @@ data class ClockTime(
     val minute: Int
 ) {
     fun displayText(): String {
-        val period = if (hour12 < 12) "AM" else "PM"
-        val displayHour = when (val normalizedHour = hour12 % 12) {
+        val isFrench = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales()[0]?.language?.startsWith("fr") == true
+        
+        val normalizedHour = when (val h = hour12 % 12) {
             0 -> 12
-            else -> normalizedHour
+            else -> h
         }
-        return "%d:%02d %s".format(displayHour, minute, period)
+
+        return if (isFrench) {
+            val period = if (hour12 < 12) "du matin" else if (hour12 < 18) "de l'après-midi" else "du soir"
+            "%d:%02d %s".format(normalizedHour, minute, period)
+        } else {
+            val period = if (hour12 < 12) "AM" else "PM"
+            "%d:%02d %s".format(normalizedHour, minute, period)
+        }
     }
 }
 

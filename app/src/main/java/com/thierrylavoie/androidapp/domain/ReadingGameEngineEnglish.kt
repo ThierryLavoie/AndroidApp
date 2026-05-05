@@ -43,7 +43,7 @@ class ReadingGameEngineEnglish(
             2
         ),
         ReadingTask(
-            "The Apollo 11 mission was the first to land humans on the Moon. Neil Armstrong and Buzz Aldrin were the first people to walk on the lunar surface in 1969.",
+            "The Apollo 11 mission was the first to land humans on the Moon. Neil Armstrong became the first person to walk on the lunar surface in 1969, followed by Buzz Aldrin.",
             "Who was the first person to walk on the Moon?",
             listOf("Buzz Aldrin", "Neil Armstrong", "Yuri Gagarin", "John Glenn"),
             1
