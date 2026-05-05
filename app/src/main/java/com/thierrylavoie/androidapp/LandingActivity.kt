@@ -1,4 +1,4 @@
-package com.thierrylavoie.androidapp
+package com.thierrylavoie.ludo
 
 import android.content.Intent
 import android.os.Bundle
@@ -9,8 +9,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.os.LocaleListCompat
 import com.google.android.material.button.MaterialButton
-import com.thierrylavoie.androidapp.domain.ShopManager
-import com.thierrylavoie.androidapp.domain.UserStatsRepository
+import com.thierrylavoie.ludo.domain.ShopManager
+import com.thierrylavoie.ludo.domain.UserStatsRepository
 
 class LandingActivity : AppCompatActivity() {
 
@@ -21,9 +21,6 @@ class LandingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_landing)
 
         statsRepository = UserStatsRepository(this)
-        
-        // Testing: Grant 50,000 points
-        statsRepository.addPoints(50000)
 
         val btnClockGame = findViewById<MaterialButton>(R.id.btnClockGame)
         val btnMentalMath = findViewById<MaterialButton>(R.id.btnMentalMath)

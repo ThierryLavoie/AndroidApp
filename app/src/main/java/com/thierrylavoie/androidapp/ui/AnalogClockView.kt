@@ -1,4 +1,4 @@
-package com.thierrylavoie.androidapp.ui
+package com.thierrylavoie.ludo.ui
 
 import android.content.Context
 import android.graphics.Canvas

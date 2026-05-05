@@ -1,4 +1,4 @@
-package com.thierrylavoie.androidapp
+package com.thierrylavoie.ludo
 
 import android.annotation.SuppressLint
 import android.os.Bundle
@@ -19,8 +19,8 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.appbar.MaterialToolbar
 import com.google.android.material.card.MaterialCardView
 import com.google.android.material.tabs.TabLayout
-import com.thierrylavoie.androidapp.domain.ShopManager
-import com.thierrylavoie.androidapp.domain.UserStatsRepository
+import com.thierrylavoie.ludo.domain.ShopManager
+import com.thierrylavoie.ludo.domain.UserStatsRepository
 
 class CustomizeAvatarActivity : AppCompatActivity() {
 

@@ -1,4 +1,4 @@
-package com.thierrylavoie.androidapp
+package com.thierrylavoie.ludo
 
 import android.os.Bundle
 import android.widget.Button
@@ -9,9 +9,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.thierrylavoie.androidapp.domain.MathLevel
-import com.thierrylavoie.androidapp.domain.MentalMathEngine
-import com.thierrylavoie.androidapp.ui.MentalMathViewModel
+import com.thierrylavoie.ludo.domain.MathLevel
+import com.thierrylavoie.ludo.domain.MentalMathEngine
+import com.thierrylavoie.ludo.ui.MentalMathViewModel
 
 class MentalCalculationActivity : AppCompatActivity() {
 
@@ -108,7 +108,7 @@ private class MentalMathViewModelFactory(private val context: android.content.Co
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MentalMathViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            val repository = com.thierrylavoie.androidapp.domain.UserStatsRepository(context)
+            val repository = com.thierrylavoie.ludo.domain.UserStatsRepository(context)
             return MentalMathViewModel(MentalMathEngine(), repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

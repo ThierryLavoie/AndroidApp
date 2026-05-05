@@ -1,4 +1,4 @@
-package com.thierrylavoie.androidapp.domain
+package com.thierrylavoie.ludo.domain
 
 import android.content.Context
 import android.content.SharedPreferences

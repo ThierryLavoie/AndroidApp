@@ -1,9 +1,9 @@
-package com.thierrylavoie.androidapp.ui
+package com.thierrylavoie.ludo.ui
 
 import androidx.lifecycle.ViewModel
-import com.thierrylavoie.androidapp.domain.ReadingGameEngineEnglish
-import com.thierrylavoie.androidapp.domain.ReadingTask
-import com.thierrylavoie.androidapp.domain.UserStatsRepository
+import com.thierrylavoie.ludo.domain.ReadingGameEngineEnglish
+import com.thierrylavoie.ludo.domain.ReadingTask
+import com.thierrylavoie.ludo.domain.UserStatsRepository
 
 class EnglishReadingGameViewModel(
     private val engine: ReadingGameEngineEnglish,

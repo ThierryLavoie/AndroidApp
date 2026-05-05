@@ -1,4 +1,4 @@
-package com.thierrylavoie.androidapp
+package com.thierrylavoie.ludo
 
 import android.os.Bundle
 import android.view.View
@@ -10,10 +10,10 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.thierrylavoie.androidapp.domain.ClockGameEngine
-import com.thierrylavoie.androidapp.domain.GameMode
-import com.thierrylavoie.androidapp.ui.AnalogClockView
-import com.thierrylavoie.androidapp.ui.MainViewModel
+import com.thierrylavoie.ludo.domain.ClockGameEngine
+import com.thierrylavoie.ludo.domain.GameMode
+import com.thierrylavoie.ludo.ui.AnalogClockView
+import com.thierrylavoie.ludo.ui.MainViewModel
 
 class MainActivity : AppCompatActivity() {
 
@@ -145,7 +145,7 @@ private class MainViewModelFactory(private val context: android.content.Context)
     override fun <T : ViewModel> create(modelClass: Class<T>): T {
         if (modelClass.isAssignableFrom(MainViewModel::class.java)) {
             @Suppress("UNCHECKED_CAST")
-            val repository = com.thierrylavoie.androidapp.domain.UserStatsRepository(context)
+            val repository = com.thierrylavoie.ludo.domain.UserStatsRepository(context)
             return MainViewModel(ClockGameEngine(), repository) as T
         }
         throw IllegalArgumentException("Unknown ViewModel class")

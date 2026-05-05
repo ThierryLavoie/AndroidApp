@@ -1,10 +1,10 @@
-package com.thierrylavoie.androidapp.ui
+package com.thierrylavoie.ludo.ui
 
 import androidx.lifecycle.ViewModel
-import com.thierrylavoie.androidapp.domain.MathLevel
-import com.thierrylavoie.androidapp.domain.MathOperation
-import com.thierrylavoie.androidapp.domain.MentalMathEngine
-import com.thierrylavoie.androidapp.domain.UserStatsRepository
+import com.thierrylavoie.ludo.domain.MathLevel
+import com.thierrylavoie.ludo.domain.MathOperation
+import com.thierrylavoie.ludo.domain.MentalMathEngine
+import com.thierrylavoie.ludo.domain.UserStatsRepository
 
 class MentalMathViewModel(
     private val engine: MentalMathEngine,

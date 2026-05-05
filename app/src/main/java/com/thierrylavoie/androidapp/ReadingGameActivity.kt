@@ -1,4 +1,4 @@
-package com.thierrylavoie.androidapp
+package com.thierrylavoie.ludo
 
 import android.os.Bundle
 import android.view.View
@@ -10,9 +10,9 @@ import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.thierrylavoie.androidapp.domain.ReadingGameEngine
-import com.thierrylavoie.androidapp.domain.UserStatsRepository
-import com.thierrylavoie.androidapp.ui.ReadingGameViewModel
+import com.thierrylavoie.ludo.domain.ReadingGameEngine
+import com.thierrylavoie.ludo.domain.UserStatsRepository
+import com.thierrylavoie.ludo.ui.ReadingGameViewModel
 
 class ReadingGameActivity : AppCompatActivity() {
 

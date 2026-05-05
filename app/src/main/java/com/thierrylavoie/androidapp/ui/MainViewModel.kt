@@ -1,10 +1,10 @@
-package com.thierrylavoie.androidapp.ui
+package com.thierrylavoie.ludo.ui
 
 import androidx.lifecycle.ViewModel
-import com.thierrylavoie.androidapp.domain.ClockGameEngine
-import com.thierrylavoie.androidapp.domain.ClockTime
-import com.thierrylavoie.androidapp.domain.GameMode
-import com.thierrylavoie.androidapp.domain.UserStatsRepository
+import com.thierrylavoie.ludo.domain.ClockGameEngine
+import com.thierrylavoie.ludo.domain.ClockTime
+import com.thierrylavoie.ludo.domain.GameMode
+import com.thierrylavoie.ludo.domain.UserStatsRepository
 
 class MainViewModel(
     private val gameEngine: ClockGameEngine,
