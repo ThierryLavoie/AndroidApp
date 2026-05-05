@@ -83,15 +83,29 @@ class MentalCalculationActivity : AppCompatActivity() {
             }
 
             val isCorrect = viewModel.submitAnswer(answer)
+            val resultText = viewModel.currentOperation.result.toString()
+            
+            submitButton.isEnabled = false
             feedbackView.text = if (isCorrect) {
-                getString(R.string.correct_feedback)
+                feedbackView.setTextColor(getColor(R.color.fresh_green))
+                "🎉 " + getString(R.string.correct_feedback)
             } else {
-                getString(R.string.wrong_feedback, viewModel.currentOperation.result.toString())
+                feedbackView.setTextColor(getColor(R.color.vibrant_pink))
+                "❌ " + getString(R.string.wrong_feedback, resultText)
             }
 
+            feedbackView.scaleX = 0f
+            feedbackView.scaleY = 0f
+            feedbackView.animate().scaleX(1.2f).scaleY(1.2f).setDuration(300).start()
+
             updateScoreText()
-            viewModel.startNextRound()
-            renderPrompt()
+            
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                feedbackView.text = ""
+                submitButton.isEnabled = true
+                viewModel.startNextRound()
+                renderPrompt()
+            }, 2000)
         }
 
         updateScoreText()

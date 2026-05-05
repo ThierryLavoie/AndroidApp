@@ -121,13 +121,26 @@ class MainActivity : AppCompatActivity() {
                 viewModel.submitReadClockAnswer(enteredHour, enteredMinute)
             }
 
+            submitButton.isEnabled = false
             feedbackView.text = if (isCorrect) {
-                getString(R.string.correct_feedback)
+                feedbackView.setTextColor(getColor(R.color.fresh_green))
+                "🎉 " + getString(R.string.correct_feedback)
             } else {
-                getString(R.string.wrong_feedback, viewModel.currentTarget.displayText())
+                feedbackView.setTextColor(getColor(R.color.vibrant_pink))
+                "❌ " + getString(R.string.wrong_feedback, viewModel.currentTarget.displayText())
             }
+            
+            feedbackView.scaleX = 0f
+            feedbackView.scaleY = 0f
+            feedbackView.animate().scaleX(1.2f).scaleY(1.2f).setDuration(300).start()
+
             updateScoreText()
-            goToNextRound()
+            
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                feedbackView.text = ""
+                submitButton.isEnabled = true
+                goToNextRound()
+            }, 2000)
         }
 
         updateModeUi()
