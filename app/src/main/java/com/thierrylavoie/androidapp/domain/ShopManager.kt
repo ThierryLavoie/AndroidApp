@@ -31,9 +31,9 @@ object ShopManager {
         AvatarItem("hat_crown", "Crown", "Couronne", "HAT", 1000, "👑"),
         
         // Glasses
-        AvatarItem("glass_cool", "Sunglasses", "Lunettes de soleil", "GLASSES", 75, "😎"),
-        AvatarItem("glass_nerd", "Glasses", "Lunettes", "GLASSES", 30, "🤓"),
-        AvatarItem("glass_monocle", "Monocle", "Monocle", "GLASSES", 300, "🧐"),
+        AvatarItem("glass_cool", "Sunglasses", "Lunettes de soleil", "GLASSES", 75, "🕶️"),
+        AvatarItem("glass_nerd", "Glasses", "Lunettes", "GLASSES", 30, "👓"),
+        AvatarItem("glass_goggles", "Goggles", "Masque", "GLASSES", 300, "🥽"),
         
         // Accessories
         AvatarItem("acc_medal", "Medal", "Médaille", "CHEST", 150, "🏅"),

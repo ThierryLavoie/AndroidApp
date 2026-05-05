@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface">
+    android:background="@color/surface_kid">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -17,19 +17,23 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/title"
-            android:textAppearance="?attr/textAppearanceTitleMedium" />
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textColor="@color/playful_blue"
+            android:textStyle="bold" />
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:layout_marginTop="4dp">
             <TextView
                 android:id="@+id/scoreView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/score_initial"
-                android:textAppearance="?attr/textAppearanceBodyMedium" />
+                android:textAppearance="?attr/textAppearanceBodyMedium"
+                android:textColor="#555555" />
             <TextView
                 android:id="@+id/totalPointsView"
                 android:layout_width="wrap_content"
@@ -37,22 +41,24 @@
                 android:layout_marginStart="16dp"
                 android:text="@string/user_points_format"
                 android:textAppearance="?attr/textAppearanceBodySmall"
-                android:textColor="?attr/colorOnSurfaceVariant" />
+                android:textColor="@color/energetic_orange"
+                android:textStyle="bold" />
         </LinearLayout>
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            app:cardCornerRadius="12dp"
-            app:strokeColor="?attr/colorOutlineVariant"
-            app:strokeWidth="1dp">
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="20dp"
+            app:strokeWidth="0dp"
+            app:cardElevation="4dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                android:padding="12dp">
+                android:padding="16dp"
+                android:background="#FFFFFF">
 
                 <RadioGroup
                     android:id="@+id/modeSelector"
@@ -60,11 +66,11 @@
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
                     android:gravity="center">
-                    <RadioButton android:id="@+id/modeSetHands" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mode_set_hands" />
-                    <RadioButton android:id="@+id/modeReadClock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="@string/mode_read_clock" />
+                    <RadioButton android:id="@+id/modeSetHands" android:layout_width="wrap_content" android:layout_height="wrap_content" android:text="@string/mode_set_hands" android:buttonTint="@color/playful_blue" />
+                    <RadioButton android:id="@+id/modeReadClock" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_marginStart="16dp" android:text="@string/mode_read_clock" android:buttonTint="@color/playful_blue" />
                 </RadioGroup>
 
-                <View android:layout_width="match_parent" android:layout_height="1dp" android:background="?attr/colorOutlineVariant" android:layout_marginVertical="8dp" />
+                <View android:layout_width="match_parent" android:layout_height="2dp" android:background="#F0F0F0" android:layout_marginVertical="12dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -74,8 +80,8 @@
                     <com.thierrylavoie.androidapp.ui.AnalogClockView
                         android:id="@+id/analogClockView"
                         android:layout_width="0dp"
-                        android:layout_height="240dp"
-                        android:layout_weight="1" />
+                        android:layout_height="260dp"
+                        android:layout_weight="1.2" />
 
                     <LinearLayout
                         android:layout_width="0dp"
@@ -90,7 +96,9 @@
                             android:id="@+id/promptView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:textAppearance="?attr/textAppearanceBodyLarge" />
+                            android:textAppearance="?attr/textAppearanceBodyLarge"
+                            android:textColor="#333333"
+                            android:textStyle="bold" />
 
                         <LinearLayout
                             android:id="@+id/readClockAnswerSection"
@@ -98,8 +106,8 @@
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
                             android:orientation="horizontal">
-                            <EditText android:id="@+id/answerHourInput" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="@string/hour_hint" android:inputType="number" />
-                            <EditText android:id="@+id/answerMinuteInput" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:layout_weight="1" android:hint="@string/minute_hint" android:inputType="number" />
+                            <EditText android:id="@+id/answerHourInput" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_weight="1" android:hint="@string/hour_hint" android:inputType="number" android:backgroundTint="@color/playful_blue" />
+                            <EditText android:id="@+id/answerMinuteInput" android:layout_width="0dp" android:layout_height="wrap_content" android:layout_marginStart="8dp" android:layout_weight="1" android:hint="@string/minute_hint" android:inputType="number" android:backgroundTint="@color/playful_blue" />
                         </LinearLayout>
 
                         <Button
@@ -107,14 +115,18 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="24dp"
-                            android:text="@string/submit_hands_answer" />
+                            android:text="@string/submit_hands_answer"
+                            app:backgroundTint="@color/vibrant_pink"
+                            android:textColor="@android:color/white"
+                            app:cornerRadius="12dp" />
 
                         <TextView
                             android:id="@+id/feedbackView"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginTop="16dp"
-                            android:textAppearance="?attr/textAppearanceBodyMedium" />
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:gravity="center" />
                     </LinearLayout>
                 </LinearLayout>
             </LinearLayout>
@@ -126,7 +138,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:text="@string/btn_back_to_menu" />
+            android:text="@string/btn_back_to_menu"
+            android:textColor="@color/playful_blue" />
 
     </LinearLayout>
 </ScrollView>

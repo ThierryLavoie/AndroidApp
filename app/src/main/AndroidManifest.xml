@@ -34,6 +34,10 @@
             android:name=".ShopActivity"
             android:exported="false"
             android:label="@string/shop_title" />
+        <activity
+            android:name=".CustomizeAvatarActivity"
+            android:exported="false"
+            android:label="@string/customize_title" />
     </application>
 
 </manifest>

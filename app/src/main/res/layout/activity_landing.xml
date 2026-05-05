@@ -3,14 +3,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="?attr/colorSurface">
+    android:background="@color/surface_kid">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:orientation="vertical"
-        android:padding="24dp">
+        android:padding="24dp"
+        android:clipChildren="false"
+        android:clipToPadding="false">
 
         <TextView
             android:id="@+id/landingTitle"
@@ -18,24 +20,27 @@
             android:layout_height="wrap_content"
             android:text="@string/landing_title"
             android:textAppearance="?attr/textAppearanceHeadlineMedium"
-            android:textColor="?attr/colorOnSurface" />
+            android:textColor="#D81B60"
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/landingSubtitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="4dp"
             android:text="@string/landing_subtitle"
             android:textAppearance="?attr/textAppearanceBodyLarge"
-            android:textColor="?attr/colorOnSurfaceVariant" />
+            android:textColor="#555555" />
 
         <!-- Avatar Section -->
         <FrameLayout
             android:id="@+id/avatarContainer"
             android:layout_width="200dp"
             android:layout_height="200dp"
-            android:layout_marginTop="24dp"
-            android:background="@drawable/avatar_bg">
+            android:layout_marginTop="20dp"
+            android:background="@drawable/avatar_bg"
+            android:clipChildren="false"
+            android:clipToPadding="false">
 
             <TextView
                 android:id="@+id/avatarBase"
@@ -80,36 +85,54 @@
                 android:textSize="48sp" />
         </FrameLayout>
 
-        <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnShop"
-            style="@style/Widget.Material3.Button.TextButton"
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
-            android:text="@string/btn_shop" />
+            android:orientation="horizontal"
+            android:layout_marginTop="8dp">
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnShop"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/btn_shop"
+                android:textColor="@color/vibrant_pink" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnCustomize"
+                style="@style/Widget.Material3.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/btn_customize"
+                android:textColor="@color/playful_blue" />
+        </LinearLayout>
 
         <com.google.android.material.card.MaterialCardView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            app:cardCornerRadius="16dp"
-            app:cardElevation="0dp"
-            app:strokeColor="?attr/colorOutlineVariant"
-            app:strokeWidth="1dp">
+            app:cardCornerRadius="20dp"
+            app:cardElevation="4dp"
+            app:strokeWidth="0dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:orientation="vertical"
-                android:padding="16dp">
+                android:padding="16dp"
+                android:background="#E1F5FE">
 
                 <TextView
                     android:id="@+id/totalPointsView"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="@string/user_points_format"
-                    android:textAppearance="?attr/textAppearanceTitleLarge" />
+                    android:textAppearance="?attr/textAppearanceTitleLarge"
+                    android:textColor="@color/playful_blue"
+                    android:textStyle="bold" />
 
                 <TextView
                     android:id="@+id/userRankView"
@@ -117,7 +140,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
                     android:text="@string/user_rank_format"
-                    android:textAppearance="?attr/textAppearanceBodyMedium" />
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:textColor="#78909C" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
@@ -128,7 +152,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             android:padding="16dp"
-            android:text="@string/btn_clock_game" />
+            android:text="@string/btn_clock_game"
+            app:backgroundTint="@color/playful_blue"
+            android:textColor="@android:color/white"
+            app:cornerRadius="16dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnMentalMath"
@@ -137,7 +164,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:padding="16dp"
-            android:text="@string/btn_mental_math" />
+            android:text="@string/btn_mental_math"
+            app:backgroundTint="@color/fresh_green"
+            android:textColor="@android:color/white"
+            app:cornerRadius="16dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnReadingGame"
@@ -146,7 +176,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:padding="16dp"
-            android:text="@string/btn_reading_game" />
+            android:text="@string/btn_reading_game"
+            app:backgroundTint="@color/energetic_orange"
+            android:textColor="@android:color/white"
+            app:cornerRadius="16dp" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnReadingGameEn"
@@ -155,7 +188,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:padding="16dp"
-            android:text="@string/btn_reading_game_en" />
+            android:text="@string/btn_reading_game_en"
+            app:backgroundTint="@color/vibrant_pink"
+            android:textColor="@android:color/white"
+            app:cornerRadius="16dp" />
 
         <RadioGroup
             android:id="@+id/languageSelector"
@@ -168,14 +204,16 @@
                 android:id="@+id/languageEnglish"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/language_english" />
+                android:text="@string/language_english"
+                android:buttonTint="@color/playful_blue" />
 
             <RadioButton
                 android:id="@+id/languageFrench"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="16dp"
-                android:text="@string/language_french" />
+                android:text="@string/language_french"
+                android:buttonTint="@color/playful_blue" />
         </RadioGroup>
 
     </LinearLayout>

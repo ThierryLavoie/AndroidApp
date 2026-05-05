@@ -21,6 +21,9 @@ class LandingActivity : AppCompatActivity() {
         setContentView(R.layout.activity_landing)
 
         statsRepository = UserStatsRepository(this)
+        
+        // Testing: Grant 50,000 points
+        statsRepository.addPoints(50000)
 
         val btnClockGame = findViewById<MaterialButton>(R.id.btnClockGame)
         val btnMentalMath = findViewById<MaterialButton>(R.id.btnMentalMath)
@@ -31,6 +34,10 @@ class LandingActivity : AppCompatActivity() {
 
         btnShop.setOnClickListener {
             startActivity(Intent(this, ShopActivity::class.java))
+        }
+
+        findViewById<MaterialButton>(R.id.btnCustomize).setOnClickListener {
+            startActivity(Intent(this, CustomizeAvatarActivity::class.java))
         }
 
         btnClockGame.setOnClickListener {
@@ -81,10 +88,27 @@ class LandingActivity : AppCompatActivity() {
         val equippedCompanionId = statsRepository.getEquippedItem("COMPANION")
 
         baseView.text = ShopManager.items.find { it.id == equippedBaseId }?.icon ?: "😶"
-        hatView.text = ShopManager.items.find { it.id == equippedHatId }?.icon ?: ""
-        glassesView.text = ShopManager.items.find { it.id == equippedGlassesId }?.icon ?: ""
-        chestView.text = ShopManager.items.find { it.id == equippedChestId }?.icon ?: ""
-        companionView.text = ShopManager.items.find { it.id == equippedCompanionId }?.icon ?: ""
+        
+        applyItem(hatView, "HAT", equippedHatId)
+        applyItem(glassesView, "GLASSES", equippedGlassesId)
+        applyItem(chestView, "CHEST", equippedChestId)
+        applyItem(companionView, "COMPANION", equippedCompanionId)
+    }
+
+    private fun applyItem(view: TextView, category: String, itemId: String?) {
+        val item = ShopManager.items.find { it.id == itemId }
+        if (item == null) {
+            view.visibility = View.GONE
+            return
+        }
+        view.text = item.icon
+        view.visibility = View.VISIBLE
+        val (ox, oy) = statsRepository.getAccessoryOffset(category)
+        
+        // Scale down the offset for the smaller landing menu avatar if necessary
+        // The landing avatar is 200dp, the customizer is 260dp. Ratio is ~0.77
+        view.translationX = ox * 0.77f
+        view.translationY = oy * 0.77f
     }
 
     private fun updateStatsUi() {
