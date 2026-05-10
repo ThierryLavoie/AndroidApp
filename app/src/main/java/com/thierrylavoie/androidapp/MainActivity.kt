@@ -25,8 +25,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         val modeSelector = findViewById<RadioGroup>(R.id.modeSelector)
         val promptView = findViewById<TextView>(R.id.promptView)
         val scoreView = findViewById<TextView>(R.id.scoreView)

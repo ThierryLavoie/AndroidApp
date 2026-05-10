@@ -23,8 +23,6 @@ class MentalCalculationActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_mental_calculation)
 
-        supportActionBar?.setDisplayHomeAsUpEnabled(true)
-
         val operationPrompt = findViewById<TextView>(R.id.operationPrompt)
         val scoreView = findViewById<TextView>(R.id.scoreView)
         val feedbackView = findViewById<TextView>(R.id.feedbackView)

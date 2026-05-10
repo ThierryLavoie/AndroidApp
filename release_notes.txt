@@ -1,0 +1,17 @@
+<en-US>
+**What's New in Ludo**
+* **New Educational Games:** Master time-telling with the Clock Game, sharpen math skills with Mental Calculation (Grades 1-5), and improve literacy with Reading Practice.
+* **Avatar Shop & Customization:** Earn points by playing and spend them on fun hats, glasses, and companions to personalize your avatar.
+* **Progress Tracking:** Earn ranks from Novice to Grandmaster as you improve your scores.
+* **Bilingual Content:** Reading modules and UI available in both English and French.
+* **Privacy First:** No data collection—all your progress stays locally on your device.
+</en-US>
+
+<fr-CA>
+**Nouveautés dans Ludo**
+* **Nouveaux jeux éducatifs :** Apprenez à lire l'heure avec le Jeu de l'horloge, améliorez vos compétences en mathématiques avec le Calcul mental (1re à 5e année) et pratiquez la lecture.
+* **Boutique d'avatars :** Gagnez des points en jouant et utilisez-les pour débloquer des chapeaux, des lunettes et des compagnons pour personnaliser votre avatar.
+* **Suivi de progression :** Évoluez de Novice à Grand maître à mesure que vous accumulez des points.
+* **Contenu bilingue :** Modules de lecture et interface disponibles en français et en anglais.
+* **Confidentialité :** Aucune collecte de données — toute votre progression reste enregistrée localement sur votre appareil.
+</fr-CA>
