@@ -193,6 +193,18 @@
             android:textColor="@android:color/white"
             app:cornerRadius="16dp" />
 
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnSpellingGame"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:text="@string/btn_spelling_game"
+            app:backgroundTint="@color/soft_purple"
+            android:textColor="@android:color/white"
+            app:cornerRadius="16dp" />
+
         <RadioGroup
             android:id="@+id/languageSelector"
             android:layout_width="wrap_content"

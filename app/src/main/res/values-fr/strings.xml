@@ -55,7 +55,8 @@
     <string name="grade_3">CE2 (3ème)</string>
     <string name="grade_4">CM1 (4ème)</string>
     <string name="grade_5">CM2+ (5ème+)</string>
-    <string name="math_prompt">Combien font %1$d %2$s %3$d ?</string>
+    <string name="math_prompt">Combien font %1$s %2$s %3$s ?</string>
+    <string name="math_missing_term_prompt">%1$s %2$s %3$s = %4$d</string>
     <string name="math_answer_hint">Résultat</string>
     <string name="submit_answer">Valider</string>
     <string name="invalid_input">Veuillez entrer un nombre valide</string>
@@ -73,6 +74,9 @@
     <string name="game_over_reading">Vous avez terminé toutes les questions !</string>
     <string name="btn_restart">Recommencer</string>
     <string name="btn_back_to_menu">Menu Principal</string>
+    <string name="btn_spelling_game">Jeu d\'orthographe</string>
+    <string name="spelling_instruction">Appuyez sur l\'icône pour écouter le mot</string>
+    <string name="spelling_hint">Écrivez le mot ici</string>
     <string name="btn_about">À propos et Confidentialité</string>
     <string name="about_title">À propos de Ludo</string>
     <string name="about_content">Ludo est un jeu éducatif conçu pour aider les enfants à pratiquer la lecture, le calcul et l\'heure.\n\nPolitique de confidentialité : Cette application ne collecte aucune donnée personnelle. Vos points et vos paramètres d\'avatar sont stockés localement sur votre appareil.</string>

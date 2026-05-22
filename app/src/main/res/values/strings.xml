@@ -54,7 +54,8 @@
     <string name="grade_3">Grade 3</string>
     <string name="grade_4">Grade 4</string>
     <string name="grade_5">Grade 5+</string>
-    <string name="math_prompt">What is %1$d %2$s %3$d?</string>
+    <string name="math_prompt">What is %1$s %2$s %3$s?</string>
+    <string name="math_missing_term_prompt">%1$s %2$s %3$s = %4$d</string>
     <string name="math_answer_hint">Result</string>
     <string name="submit_answer">Submit</string>
     <string name="invalid_input">Please enter a valid number</string>
@@ -72,6 +73,9 @@
     <string name="game_over_reading">You have completed all questions!</string>
     <string name="btn_restart">Restart Game</string>
     <string name="btn_back_to_menu">Main Menu</string>
+    <string name="btn_spelling_game">Spelling Game</string>
+    <string name="spelling_instruction">Tap the icon to hear the word</string>
+    <string name="spelling_hint">Type the word here</string>
     <string name="btn_about">About &amp; Privacy</string>
     <string name="about_title">About Ludo</string>
     <string name="about_content">Ludo is an educational game designed to help children practice reading, math, and time-telling.\n\nPrivacy Policy: This app does not collect any personal data. All your points and avatar settings are stored locally on your device.</string>

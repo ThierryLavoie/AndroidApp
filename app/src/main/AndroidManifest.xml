@@ -40,6 +40,10 @@
             android:name=".CustomizeAvatarActivity"
             android:exported="false"
             android:label="@string/customize_title" />
+        <activity
+            android:name=".SpellingGameActivity"
+            android:exported="false"
+            android:label="@string/btn_spelling_game" />
     </application>
 
 </manifest>

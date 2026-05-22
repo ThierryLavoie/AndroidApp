@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_kid"
+    android:orientation="vertical"
+    android:padding="24dp"
+    android:gravity="center_horizontal">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btn_spelling_game"
+        android:textAppearance="?attr/textAppearanceHeadlineMedium"
+        android:textColor="@color/playful_blue"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/scoreView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@string/score_initial"
+        android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+    <TextView
+        android:id="@+id/totalPointsView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="4dp"
+        android:textColor="@color/energetic_orange"
+        android:textStyle="bold" />
+
+    <com.google.android.material.card.MaterialCardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        app:cardCornerRadius="24dp"
+        app:cardElevation="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="24dp"
+            android:gravity="center">
+
+            <ImageButton
+                android:id="@+id/btnListen"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:src="@android:drawable/ic_lock_silent_mode_off"
+                android:scaleType="fitCenter"
+                app:tint="@color/playful_blue" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@string/spelling_instruction"
+                android:textAppearance="?attr/textAppearanceBodyMedium" />
+
+            <EditText
+                android:id="@+id/answerInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:hint="@string/spelling_hint"
+                android:inputType="text"
+                android:textAlignment="center"
+                android:textAppearance="?attr/textAppearanceHeadlineSmall" />
+
+            <Button
+                android:id="@+id/submitButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/submit_answer"
+                app:cornerRadius="12dp"
+                app:backgroundTint="@color/vibrant_pink" />
+
+            <TextView
+                android:id="@+id/feedbackView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textAppearance="?attr/textAppearanceBodyLarge"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </com.google.android.material.card.MaterialCardView>
+
+    <Button
+        android:id="@+id/btnBackToMenu"
+        style="@style/Widget.Material3.Button.TextButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@string/btn_back_to_menu" />
+
+</LinearLayout>

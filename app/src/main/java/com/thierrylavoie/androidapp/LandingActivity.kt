@@ -26,6 +26,7 @@ class LandingActivity : AppCompatActivity() {
         val btnMentalMath = findViewById<MaterialButton>(R.id.btnMentalMath)
         val btnReadingGame = findViewById<MaterialButton>(R.id.btnReadingGame)
         val btnReadingGameEn = findViewById<MaterialButton>(R.id.btnReadingGameEn)
+        val btnSpellingGame = findViewById<MaterialButton>(R.id.btnSpellingGame)
         val btnShop = findViewById<MaterialButton>(R.id.btnShop)
         val languageSelector = findViewById<RadioGroup>(R.id.languageSelector)
 
@@ -51,6 +52,10 @@ class LandingActivity : AppCompatActivity() {
 
         btnReadingGameEn.setOnClickListener {
             startActivity(Intent(this, EnglishReadingGameActivity::class.java))
+        }
+
+        btnSpellingGame.setOnClickListener {
+            startActivity(Intent(this, SpellingGameActivity::class.java))
         }
 
         findViewById<View>(R.id.btnAbout).setOnClickListener {

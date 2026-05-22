@@ -45,7 +45,11 @@ class MentalCalculationActivity : AppCompatActivity() {
 
         fun renderPrompt() {
             val op = viewModel.currentOperation
-            operationPrompt.text = getString(R.string.math_prompt, op.left, op.operator, op.right)
+            if (op.isMissingTerm) {
+                operationPrompt.text = getString(R.string.math_missing_term_prompt, op.left, op.operator, op.right, op.result)
+            } else {
+                operationPrompt.text = getString(R.string.math_prompt, op.left, op.operator, op.right)
+            }
             answerInput.text?.clear()
         }
 
@@ -81,7 +85,7 @@ class MentalCalculationActivity : AppCompatActivity() {
             }
 
             val isCorrect = viewModel.submitAnswer(answer)
-            val resultText = viewModel.currentOperation.result.toString()
+            val resultText = viewModel.currentOperation.expectedAnswer.toString()
             
             submitButton.isEnabled = false
             feedbackView.text = if (isCorrect) {
