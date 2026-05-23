@@ -83,6 +83,7 @@
     <string name="btn_spelling_game">Spelling Game</string>
     <string name="spelling_instruction">Tap the icon to hear the word</string>
     <string name="spelling_hint">Type the word here</string>
+    <string name="tts_initializing">Initializing voice&#8230;</string>
     <string name="btn_about">About &amp; Privacy</string>
     <string name="about_title">About Ludo</string>
     <string name="about_content">Ludo is an educational game designed to help children practice reading, math, and time-telling.\n\nPrivacy Policy: This app does not collect any personal data. All your points and avatar settings are stored locally on your device.</string>

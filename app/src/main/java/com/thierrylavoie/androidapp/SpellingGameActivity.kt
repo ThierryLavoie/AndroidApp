@@ -81,6 +81,12 @@ class SpellingGameActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             updateTtsLanguage()
             val word = viewModel.currentWord.word
             tts?.speak(word, TextToSpeech.QUEUE_FLUSH, null, "spelling_word")
+        } else {
+            feedbackView.setTextColor(getColor(R.color.playful_blue))
+            feedbackView.text = getString(R.string.tts_initializing)
+            android.os.Handler(android.os.Looper.getMainLooper()).postDelayed({
+                speakWord()
+            }, 1000)
         }
     }
 

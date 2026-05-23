@@ -84,6 +84,7 @@
     <string name="btn_spelling_game">Jeu d\'orthographe</string>
     <string name="spelling_instruction">Appuyez sur l\'icône pour écouter le mot</string>
     <string name="spelling_hint">Écrivez le mot ici</string>
+    <string name="tts_initializing">Initialisation de la voix…</string>
     <string name="btn_about">À propos et Confidentialité</string>
     <string name="about_title">À propos de Ludo</string>
     <string name="about_content">Ludo est un jeu éducatif conçu pour aider les enfants à pratiquer la lecture, le calcul et l\'heure.\n\nPolitique de confidentialité : Cette application ne collecte aucune donnée personnelle. Vos points et vos paramètres d\'avatar sont stockés localement sur votre appareil.</string>

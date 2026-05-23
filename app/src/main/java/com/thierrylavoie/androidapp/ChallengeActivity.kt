@@ -321,6 +321,10 @@ class ChallengeActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
             val task = currentTask as SpellingWord
             tts?.language = if (task.language == "fr") Locale.FRENCH else Locale.ENGLISH
             tts?.speak(task.word, TextToSpeech.QUEUE_FLUSH, null, "challenge_word")
+        } else if (currentTask is SpellingWord) {
+            feedbackView.setTextColor(getColor(R.color.playful_blue))
+            feedbackView.text = getString(R.string.tts_initializing)
+            Handler(Looper.getMainLooper()).postDelayed({ speakWord() }, 1000)
         }
     }
 
