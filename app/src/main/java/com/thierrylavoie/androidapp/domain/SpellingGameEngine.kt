@@ -11,8 +11,8 @@ data class SpellingWord(
 
 class SpellingGameEngine(private val random: Random = Random.Default) {
     private val frenchWords = listOf(
-        "maison", "chat", "chien", "pomme", "ecole", "soleil", "fleur", "garcon", "fille", "arbre",
-        "oiseau", "livre", "table", "chaise", "fenetre", "porte", "crayon", "papier", "ciel", "mer"
+        "maison", "chat", "chien", "pomme", "école", "soleil", "fleur", "garçon", "fille", "arbre",
+        "oiseau", "livre", "table", "chaise", "fenêtre", "porte", "crayon", "papier", "ciel", "mer"
     )
 
     private val englishWords = listOf(
