@@ -1,5 +1,11 @@
 <en-US>
-**What's New in Ludo**
+**What's New in Version 1.0.3**
+* **Daily Challenge Improvements:** Fixed UI issues in the Clock Game where elements overlapped.
+* **More Content:** Doubled the number of reading questions for both English and French!
+* **Scoring Update:** Earn points for every correct answer in the Daily Challenge, plus a big bonus for 7/10!
+* **Bug Fixes:** Resolved a resource issue and fixed input hints in the challenge mode.
+
+**Previously in Ludo**
 * **New Educational Games:** Master time-telling with the Clock Game, sharpen math skills with Mental Calculation (Grades 1-5), and improve literacy with Reading Practice.
 * **Avatar Shop & Customization:** Earn points by playing and spend them on fun hats, glasses, and companions to personalize your avatar.
 * **Progress Tracking:** Earn ranks from Novice to Grandmaster as you improve your scores.
@@ -8,7 +14,13 @@
 </en-US>
 
 <fr-CA>
-**Nouveautés dans Ludo**
+**Nouveautés de la version 1.0.3**
+* **Améliorations du Défi Quotidien :** Correction des problèmes d'affichage dans le Jeu de l'horloge.
+* **Plus de contenu :** Le nombre de questions de lecture en français et en anglais a été doublé !
+* **Mise à jour du score :** Gagnez des points pour chaque bonne réponse dans le Défi Quotidien, plus un gros bonus à 7/10 !
+* **Corrections de bugs :** Résolution d'un problème de ressources et des indicateurs de saisie.
+
+**Précédemment dans Ludo**
 * **Nouveaux jeux éducatifs :** Apprenez à lire l'heure avec le Jeu de l'horloge, améliorez vos compétences en mathématiques avec le Calcul mental (1re à 5e année) et pratiquez la lecture.
 * **Boutique d'avatars :** Gagnez des points en jouant et utilisez-les pour débloquer des chapeaux, des lunettes et des compagnons pour personnaliser votre avatar.
 * **Suivi de progression :** Évoluez de Novice à Grand maître à mesure que vous accumulez des points.
