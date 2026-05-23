@@ -2,12 +2,14 @@ package com.thierrylavoie.ludo.domain
 
 import kotlin.random.Random
 
+import java.io.Serializable
+
 data class ReadingTask(
     val text: String,
     val question: String,
     val options: List<String>,
     val correctOptionIndex: Int
-)
+) : Serializable
 
 class ReadingGameEngine(
     private val random: Random = Random.Default

@@ -2,6 +2,8 @@ package com.thierrylavoie.ludo.domain
 
 import kotlin.random.Random
 
+import java.io.Serializable
+
 enum class GameMode {
     SET_HANDS,
     READ_CLOCK
@@ -10,7 +12,7 @@ enum class GameMode {
 data class ClockTime(
     val hour12: Int,
     val minute: Int
-) {
+) : Serializable {
     fun displayText(): String {
         val isFrench = androidx.appcompat.app.AppCompatDelegate.getApplicationLocales()[0]?.language?.startsWith("fr") == true
         

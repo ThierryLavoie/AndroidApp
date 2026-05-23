@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:hint="@string/spelling_hint"
-                android:inputType="text"
+                android:inputType="textVisiblePassword|textNoSuggestions"
                 android:textAlignment="center"
                 android:textAppearance="?attr/textAppearanceHeadlineSmall" />
 

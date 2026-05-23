@@ -77,7 +77,82 @@ class ChallengeActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
         submitButton.setOnClickListener { checkAnswer() }
         btnListen.setOnClickListener { speakWord() }
 
-        nextQuestion()
+        if (savedInstanceState == null) {
+            nextQuestion()
+        }
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt("currentQuestionIndex", currentQuestionIndex)
+        outState.putInt("correctAnswersCount", correctAnswersCount)
+        outState.putSerializable("currentQuestionType", currentQuestionType)
+        if (currentTask is java.io.Serializable) {
+            outState.putSerializable("currentTask", currentTask as java.io.Serializable)
+        }
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        currentQuestionIndex = savedInstanceState.getInt("currentQuestionIndex")
+        correctAnswersCount = savedInstanceState.getInt("correctAnswersCount")
+        currentQuestionType = savedInstanceState.getSerializable("currentQuestionType") as QuestionType
+        currentTask = savedInstanceState.getSerializable("currentTask")
+        
+        updateProgress()
+        restoreQuestionUi()
+    }
+
+    private fun restoreQuestionUi() {
+        clockUi.visibility = View.GONE
+        inputUi.visibility = View.GONE
+        choiceUi.visibility = View.GONE
+        btnListen.visibility = View.GONE
+        genericInput.hint = getString(R.string.math_answer_hint)
+
+        when (currentQuestionType) {
+            QuestionType.MATH -> {
+                inputUi.visibility = View.VISIBLE
+                val op = currentTask as MathOperation
+                questionText.text = if (op.isMissingTerm) {
+                    getString(R.string.math_missing_term_prompt, op.left, op.operator, op.right, op.result)
+                } else {
+                    getString(R.string.math_prompt, op.left, op.operator, op.right)
+                }
+                genericInput.inputType = android.text.InputType.TYPE_CLASS_NUMBER or android.text.InputType.TYPE_NUMBER_FLAG_SIGNED
+            }
+            QuestionType.CLOCK -> {
+                clockUi.visibility = View.VISIBLE
+                val time = currentTask as ClockTime
+                analogClockView.setDisplayedTime(clockEngine.toDisplayHour(time.hour12), time.minute)
+                analogClockView.isInteractive = false
+                genericInput.visibility = View.VISIBLE
+                inputUi.visibility = View.VISIBLE
+                questionText.text = getString(R.string.mode_read_clock_prompt)
+                genericInput.hint = getString(R.string.hour_hint) + " " + getString(R.string.minute_hint) + " (HHMM)"
+                genericInput.inputType = android.text.InputType.TYPE_CLASS_NUMBER
+            }
+            QuestionType.READING -> {
+                choiceUi.visibility = View.VISIBLE
+                val task = currentTask as ReadingTask
+                readingText.text = task.text
+                readingQuestion.text = task.question
+                optionsGroup.removeAllViews()
+                task.options.forEachIndexed { index, option ->
+                    val rb = RadioButton(this)
+                    rb.text = option
+                    rb.id = index
+                    optionsGroup.addView(rb)
+                }
+            }
+            QuestionType.SPELLING -> {
+                inputUi.visibility = View.VISIBLE
+                btnListen.visibility = View.VISIBLE
+                questionText.text = getString(R.string.spelling_instruction)
+                genericInput.inputType = android.text.InputType.TYPE_CLASS_TEXT
+                genericInput.hint = getString(R.string.spelling_hint)
+            }
+        }
     }
 
     private fun nextQuestion() {
@@ -149,7 +224,9 @@ class ChallengeActivity : AppCompatActivity(), TextToSpeech.OnInitListener {
                 val word = spellingEngine.nextWord(if (isFr) "fr" else "en")
                 currentTask = word
                 questionText.text = getString(R.string.spelling_instruction)
-                genericInput.inputType = android.text.InputType.TYPE_CLASS_TEXT
+                genericInput.inputType = android.text.InputType.TYPE_CLASS_TEXT or 
+                                       android.text.InputType.TYPE_TEXT_VARIATION_VISIBLE_PASSWORD or 
+                                       android.text.InputType.TYPE_TEXT_FLAG_NO_SUGGESTIONS
                 genericInput.hint = getString(R.string.spelling_hint)
                 Handler(Looper.getMainLooper()).postDelayed({ speakWord() }, 500)
             }

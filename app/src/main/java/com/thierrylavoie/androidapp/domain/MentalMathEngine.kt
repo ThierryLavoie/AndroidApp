@@ -2,6 +2,8 @@ package com.thierrylavoie.ludo.domain
 
 import kotlin.random.Random
 
+import java.io.Serializable
+
 data class MathOperation(
     val left: String,
     val right: String,
@@ -9,7 +11,7 @@ data class MathOperation(
     val result: Int,
     val expectedAnswer: Int,
     val isMissingTerm: Boolean = false
-)
+) : Serializable
 
 enum class MathLevel {
     GRADE_1, // Add/Sub within 20

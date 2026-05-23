@@ -2,10 +2,12 @@ package com.thierrylavoie.ludo.domain
 
 import kotlin.random.Random
 
+import java.io.Serializable
+
 data class SpellingWord(
     val word: String,
     val language: String // "en" or "fr"
-)
+) : Serializable
 
 class SpellingGameEngine(private val random: Random = Random.Default) {
     private val frenchWords = listOf(
