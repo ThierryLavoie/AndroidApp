@@ -90,4 +90,36 @@ class UserStatsRepository(context: Context) {
             else -> "rank_grandmaster"
         }
     }
+
+    fun saveAvatarToGallery() {
+        val currentAvatars = prefs.getStringSet("avatar_gallery", setOf())?.toMutableSet() ?: mutableSetOf()
+        val timestamp = System.currentTimeMillis()
+        
+        val base = getEquippedItem("BASE") ?: "base_default"
+        val hat = getEquippedItem("HAT") ?: "none"
+        val glasses = getEquippedItem("GLASSES") ?: "none"
+        val chest = getEquippedItem("CHEST") ?: "none"
+        val companion = getEquippedItem("COMPANION") ?: "none"
+        
+        val (hx, hy) = getAccessoryOffset("HAT")
+        val (gx, gy) = getAccessoryOffset("GLASSES")
+        val (cx, cy) = getAccessoryOffset("CHEST")
+        val (px, py) = getAccessoryOffset("COMPANION")
+        
+        val avatarData = "$timestamp|$base|$hat|$hx|$hy|$glasses|$gx|$gy|$chest|$cx|$cy|$companion|$px|$py"
+        currentAvatars.add(avatarData)
+        prefs.edit().putStringSet("avatar_gallery", currentAvatars).apply()
+    }
+
+    fun clearEquipped() {
+        equipItem("BASE", "base_default")
+        equipItem("HAT", null)
+        equipItem("GLASSES", null)
+        equipItem("CHEST", null)
+        equipItem("COMPANION", null)
+        setAccessoryOffset("HAT", 0f, 0f)
+        setAccessoryOffset("GLASSES", 0f, 0f)
+        setAccessoryOffset("CHEST", 0f, 0f)
+        setAccessoryOffset("COMPANION", 0f, 0f)
+    }
 }

@@ -19,6 +19,10 @@
     <string name="customize_instruction">Drag items to move them. Tap to select.</string>
     <string name="btn_save">Save Changes</string>
     <string name="btn_reset">Reset Positions</string>
+    <string name="btn_save_to_gallery">Save to Gallery</string>
+    <string name="btn_new_avatar">New Avatar</string>
+    <string name="avatar_saved">Avatar saved to gallery!</string>
+    <string name="avatar_reset_confirm">Start a new avatar? Current items will be unequipped.</string>
     <string name="buy_confirmation">Do you want to buy %1$s for %2$d points?</string>
     <string name="btn_cancel">Cancel</string>
     <string name="cat_base">Base</string>

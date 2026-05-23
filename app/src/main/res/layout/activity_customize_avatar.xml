@@ -121,11 +121,40 @@
         android:clipToPadding="false"
         android:padding="8dp" />
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnNewAvatar"
+            style="@style/Widget.Material3.Button.OutlinedButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginEnd="4dp"
+            android:text="@string/btn_new_avatar"
+            app:cornerRadius="12dp" />
+
+        <Button
+            android:id="@+id/btnSaveToGallery"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_marginStart="4dp"
+            android:text="@string/btn_save_to_gallery"
+            app:cornerRadius="12dp" />
+    </LinearLayout>
+
     <Button
         android:id="@+id/btnSave"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginBottom="16dp"
         android:text="@string/btn_save"
         app:backgroundTint="@color/vibrant_pink"
         android:textColor="@android:color/white"

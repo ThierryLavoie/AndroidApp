@@ -20,6 +20,10 @@
     <string name="customize_instruction">Faites glisser les objets pour les déplacer.</string>
     <string name="btn_save">Enregistrer</string>
     <string name="btn_reset">Réinitialiser</string>
+    <string name="btn_save_to_gallery">Enregistrer dans la galerie</string>
+    <string name="btn_new_avatar">Nouvel Avatar</string>
+    <string name="avatar_saved">Avatar enregistré dans la galerie !</string>
+    <string name="avatar_reset_confirm">Commencer un nouvel avatar ? Les objets actuels seront retirés.</string>
     <string name="buy_confirmation">Voulez-vous acheter %1$s pour %2$d points ?</string>
     <string name="btn_cancel">Annuler</string>
     <string name="cat_base">Base</string>

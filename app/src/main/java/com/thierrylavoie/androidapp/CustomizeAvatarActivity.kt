@@ -50,6 +50,25 @@ class CustomizeAvatarActivity : AppCompatActivity() {
             finish()
         }
 
+        findViewById<Button>(R.id.btnSaveToGallery).setOnClickListener {
+            saveLayout()
+            statsRepository.saveAvatarToGallery()
+            Toast.makeText(this, R.string.avatar_saved, Toast.LENGTH_SHORT).show()
+        }
+
+        findViewById<Button>(R.id.btnNewAvatar).setOnClickListener {
+            AlertDialog.Builder(this)
+                .setTitle(R.string.btn_new_avatar)
+                .setMessage(R.string.avatar_reset_confirm)
+                .setPositiveButton(android.R.string.ok) { _, _ ->
+                    statsRepository.clearEquipped()
+                    setupAvatar()
+                    inventoryAdapter.refresh()
+                }
+                .setNegativeButton(android.R.string.cancel, null)
+                .show()
+        }
+
         setupTabs()
         setupRecyclerView()
         setupAvatar()
