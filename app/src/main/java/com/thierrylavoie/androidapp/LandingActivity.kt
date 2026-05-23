@@ -27,11 +27,11 @@ class LandingActivity : AppCompatActivity() {
         val btnReadingGame = findViewById<MaterialButton>(R.id.btnReadingGame)
         val btnReadingGameEn = findViewById<MaterialButton>(R.id.btnReadingGameEn)
         val btnSpellingGame = findViewById<MaterialButton>(R.id.btnSpellingGame)
-        val btnShop = findViewById<MaterialButton>(R.id.btnShop)
+        val btnChallenge = findViewById<MaterialButton>(R.id.btnChallenge)
         val languageSelector = findViewById<RadioGroup>(R.id.languageSelector)
 
-        btnShop.setOnClickListener {
-            startActivity(Intent(this, ShopActivity::class.java))
+        btnChallenge.setOnClickListener {
+            startActivity(Intent(this, ChallengeActivity::class.java))
         }
 
         findViewById<MaterialButton>(R.id.btnCustomize).setOnClickListener {

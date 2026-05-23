@@ -46,6 +46,10 @@
             android:name=".SpellingGameActivity"
             android:exported="false"
             android:label="@string/btn_spelling_game" />
+        <activity
+            android:name=".ChallengeActivity"
+            android:exported="false"
+            android:label="@string/challenge_title" />
     </application>
 
 </manifest>

@@ -39,6 +39,13 @@
     <string name="rank_scholar">Érudit</string>
     <string name="rank_master">Maître</string>
     <string name="rank_grandmaster">Grand Maître</string>
+    <string name="btn_challenge">Défi Quotidien</string>
+    <string name="challenge_title">Défi Quotidien</string>
+    <string name="challenge_subtitle">Gagnez des points pour chaque bonne réponse. Réussissez 7/10 pour un bonus de 50 points !</string>
+    <string name="challenge_progress">Question %1$d / 10</string>
+    <string name="challenge_success">Félicitations ! Vous avez réussi le défi et gagné 50 points bonus !</string>
+    <string name="challenge_failure">Vous avez eu %1$d/10 correct. Réessayez pour le bonus !</string>
+    <string name="challenge_complete">Défi Terminé</string>
     <string name="btn_clock_game">Jeu d\'horloge</string>
     <string name="btn_mental_math">Calcul Mental</string>
     <string name="btn_reading_game">Lecture en Français</string>

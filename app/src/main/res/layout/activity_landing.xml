@@ -92,19 +92,10 @@
             android:layout_marginTop="8dp">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnShop"
-                style="@style/Widget.Material3.Button.TextButton"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/btn_shop"
-                android:textColor="@color/vibrant_pink" />
-
-            <com.google.android.material.button.MaterialButton
                 android:id="@+id/btnCustomize"
                 style="@style/Widget.Material3.Button.TextButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
                 android:text="@string/btn_customize"
                 android:textColor="@color/playful_blue" />
         </LinearLayout>
@@ -144,6 +135,20 @@
                     android:textColor="#78909C" />
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnChallenge"
+            style="@style/Widget.Material3.Button.TonalButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:padding="16dp"
+            android:text="@string/btn_challenge"
+            app:backgroundTint="#FFD700"
+            android:textColor="#3E2723"
+            app:cornerRadius="16dp"
+            app:icon="@android:drawable/btn_star_big_on"
+            app:iconGravity="textStart" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnClockGame"

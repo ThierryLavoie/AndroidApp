@@ -102,6 +102,96 @@ class ReadingGameEngine(
             "De quelle couleur sont les bottes de Léa ?",
             listOf("Bleues", "Jaunes", "Vertes", "Rouges"),
             1
+        ),
+        ReadingTask(
+            "Le lion est souvent appelé le roi de la jungle. Il a une grande crinière et il rugit très fort pour protéger son territoire.",
+            "Comment appelle-t-on souvent le lion ?",
+            listOf("Le roi de la jungle", "Le chat géant", "Le prince des bois", "Le chef du désert"),
+            0
+        ),
+        ReadingTask(
+            "Chaque matin, Hugo mange des céréales avec du lait. Il ajoute parfois des morceaux de banane pour avoir plus d'énergie.",
+            "Que mange Hugo chaque matin ?",
+            listOf("Des œufs", "Des céréales", "Du pain grillé", "Une pomme"),
+            1
+        ),
+        ReadingTask(
+            "L'astronaute Thomas Pesquet a passé plusieurs mois dans l'espace. Il a pris de magnifiques photos de la Terre depuis la station spatiale.",
+            "Qu'a fait Thomas Pesquet depuis l'espace ?",
+            listOf("Il a dormi tout le temps", "Il a réparé la Lune", "Il a pris des photos de la Terre", "Il a mangé des pizzas"),
+            2
+        ),
+        ReadingTask(
+            "Ma petite sœur dessine un arc-en-ciel avec ses feutres. Elle utilise du rouge, de l'orange, du jaune, du vert, du bleu et du violet.",
+            "Qu'est-ce que la petite sœur dessine ?",
+            listOf("Une maison", "Un chat", "Un arc-en-ciel", "Un soleil"),
+            2
+        ),
+        ReadingTask(
+            "Les baleines sont les plus grands animaux du monde. Elles vivent dans l'océan et elles respirent par un évent situé sur leur tête.",
+            "Où vivent les baleines ?",
+            listOf("Dans les rivières", "Dans l'océan", "Sur la plage", "Dans les lacs"),
+            1
+        ),
+        ReadingTask(
+            "Pour faire une bonne pizza, il faut de la pâte, de la sauce tomate et beaucoup de fromage. On peut aussi ajouter des champignons.",
+            "Quel ingrédient est nécessaire pour la sauce de la pizza ?",
+            listOf("Du chocolat", "De la tomate", "De la crème", "Du beurre"),
+            1
+        ),
+        ReadingTask(
+            "Le vélo de Nathan est bleu avec une petite sonnette argentée. Il fait toujours attention de mettre son casque avant de partir.",
+            "Quelle est la couleur du vélo de Nathan ?",
+            listOf("Vert", "Rouge", "Bleu", "Jaune"),
+            2
+        ),
+        ReadingTask(
+            "Les abeilles fabriquent du miel dans leur ruche. Elles butinent les fleurs pour récolter le nectar. Le miel est sucré et délicieux.",
+            "Que fabriquent les abeilles ?",
+            listOf("Du sucre", "Du jus", "Du miel", "Du lait"),
+            2
+        ),
+        ReadingTask(
+            "Le Père Noël habite au Pôle Nord. Il prépare des cadeaux pour tous les enfants sages avec l'aide de ses lutins et de ses rennes.",
+            "Où habite le Père Noël ?",
+            listOf("Au Pôle Sud", "À Paris", "Au Pôle Nord", "Dans la forêt"),
+            2
+        ),
+        ReadingTask(
+            "Le pirate Barbe-Noire cherche un trésor caché sur une île déserte. Il utilise une vieille carte et une boussole pour se diriger.",
+            "Qu'utilise Barbe-Noire pour se diriger ?",
+            listOf("Un GPS", "Un télescope", "Une carte et une boussole", "Les étoiles"),
+            2
+        ),
+        ReadingTask(
+            "Les fourmis sont de petits insectes très travailleurs. Elles vivent en colonie et elles peuvent porter des objets beaucoup plus lourds qu'elles.",
+            "Comment vivent les fourmis ?",
+            listOf("Seules", "En colonie", "Dans l'eau", "Dans les arbres"),
+            1
+        ),
+        ReadingTask(
+            "Emma va à la piscine le mercredi après-midi. Elle apprend à nager la brasse et le crawl. Elle porte un maillot de bain rose.",
+            "Quand Emma va-t-elle à la piscine ?",
+            listOf("Le samedi", "Le lundi", "Le mercredi", "Le vendredi"),
+            2
+        ),
+        ReadingTask(
+            "Le kangourou vit en Australie. Il transporte son bébé dans une poche sur son ventre. Il peut faire de très grands bonds.",
+            "Où le kangourou transporte-t-il son bébé ?",
+            listOf("Sur son dos", "Dans une poche", "Dans ses bras", "Dans un sac"),
+            1
+        ),
+        ReadingTask(
+            "Pour Halloween, Lucas s'est déguisé en fantôme. Il a mis un grand drap blanc avec deux trous pour les yeux.",
+            "En quoi Lucas s'est-il déguisé ?",
+            listOf("En pirate", "En dinosaure", "En fantôme", "En magicien"),
+            2
+        ),
+        ReadingTask(
+            "Le jardinier plante des graines dans la terre. Il espère que de belles tomates pousseront cet été. Il doit enlever les mauvaises herbes.",
+            "Que plante le jardinier ?",
+            listOf("Des cailloux", "Des graines", "Des fleurs", "Des arbres"),
+            1
         )
     )
 

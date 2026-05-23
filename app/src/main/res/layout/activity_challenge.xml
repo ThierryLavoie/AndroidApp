@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/surface_kid">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/challengeTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="@string/challenge_title"
+            android:textAppearance="?attr/textAppearanceTitleLarge"
+            android:textColor="@color/playful_blue"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/challengeProgress"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="4dp"
+            android:text="@string/challenge_progress"
+            android:textAppearance="?attr/textAppearanceBodyMedium"
+            android:textColor="#555555" />
+
+        <TextView
+            android:id="@+id/challengeExplanation"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="4dp"
+            android:text="@string/challenge_subtitle"
+            android:textAppearance="?attr/textAppearanceBodySmall"
+            android:textColor="#777777" />
+
+        <com.google.android.material.card.MaterialCardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12dp"
+            app:cardCornerRadius="20dp"
+            app:strokeWidth="0dp"
+            app:cardElevation="4dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:padding="16dp"
+                android:background="#FFFFFF">
+
+                <!-- QUESTION AREA -->
+                <LinearLayout
+                    android:id="@+id/questionContainer"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <!-- CLOCK QUESTION UI -->
+                    <LinearLayout
+                        android:id="@+id/clockUi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:visibility="gone">
+                        <com.thierrylavoie.ludo.ui.AnalogClockView
+                            android:id="@+id/analogClockView"
+                            android:layout_width="match_parent"
+                            android:layout_height="240dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/mode_read_clock_prompt"
+                            android:layout_marginTop="8dp"
+                            android:gravity="center" />
+                    </LinearLayout>
+
+                    <!-- MATH / SPELLING / INPUT UI -->
+                    <LinearLayout
+                        android:id="@+id/inputUi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:gravity="center"
+                        android:visibility="gone">
+
+                        <ImageButton
+                            android:id="@+id/btnListen"
+                            android:layout_width="80dp"
+                            android:layout_height="80dp"
+                            android:background="@drawable/ic_launcher_background"
+                            android:src="@android:drawable/ic_lock_silent_mode_off"
+                            android:scaleType="fitCenter"
+                            android:padding="12dp"
+                            android:visibility="gone" />
+
+                        <TextView
+                            android:id="@+id/questionText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:gravity="center"
+                            android:textAppearance="?attr/textAppearanceHeadlineSmall"
+                            android:textColor="#333333" />
+
+                        <EditText
+                            android:id="@+id/genericInput"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="16dp"
+                            android:gravity="center"
+                            android:hint="@string/math_answer_hint"
+                            android:backgroundTint="@color/playful_blue" />
+                    </LinearLayout>
+
+                    <!-- READING / MULTIPLE CHOICE UI -->
+                    <LinearLayout
+                        android:id="@+id/choiceUi"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="gone">
+
+                        <TextView
+                            android:id="@+id/readingText"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:textAppearance="?attr/textAppearanceBodyMedium"
+                            android:background="#F9F9F9"
+                            android:padding="12dp" />
+
+                        <TextView
+                            android:id="@+id/readingQuestion"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp"
+                            android:textAppearance="?attr/textAppearanceBodyLarge"
+                            android:textStyle="bold" />
+
+                        <RadioGroup
+                            android:id="@+id/optionsGroup"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="12dp" />
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/submitButton"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="24dp"
+                    android:text="@string/submit_answer"
+                    app:backgroundTint="@color/vibrant_pink"
+                    android:textColor="@android:color/white"
+                    app:cornerRadius="12dp" />
+
+                <TextView
+                    android:id="@+id/feedbackView"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="16dp"
+                    android:textAppearance="?attr/textAppearanceBodyMedium"
+                    android:gravity="center" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
+        <Button
+            android:id="@+id/btnBackToMenu"
+            style="@style/Widget.Material3.Button.TextButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:text="@string/btn_back_to_menu"
+            android:textColor="@color/playful_blue" />
+
+    </LinearLayout>
+</ScrollView>

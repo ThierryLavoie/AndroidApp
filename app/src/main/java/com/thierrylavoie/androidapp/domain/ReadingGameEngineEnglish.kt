@@ -65,6 +65,66 @@ class ReadingGameEngineEnglish(
             "How do honeybees communicate with each other?",
             listOf("By singing", "By dancing", "By biting", "By jumping"),
             1
+        ),
+        ReadingTask(
+            "The Great Wall of China is the longest structure ever built by humans. It stretches across northern China and was built to protect the country from invasions.",
+            "Why was the Great Wall of China built?",
+            listOf("To attract tourists", "To store food", "To protect the country", "To create a road"),
+            2
+        ),
+        ReadingTask(
+            "Mars is often called the 'Red Planet' because of the iron oxide on its surface, which gives it a reddish appearance. It is the fourth planet from the Sun.",
+            "Why does Mars look red?",
+            listOf("Because it's hot", "Because of iron oxide", "Because of red plants", "Because of its atmosphere"),
+            1
+        ),
+        ReadingTask(
+            "The cheetah is the fastest land animal in the world. It can reach speeds of up to 70 miles per hour in short bursts covering distances up to 1,500 feet.",
+            "Which animal is the fastest on land?",
+            listOf("Lion", "Leopard", "Cheetah", "Tiger"),
+            2
+        ),
+        ReadingTask(
+            "Alexander Graham Bell is credited with inventing the first practical telephone in 1876. His first words on the telephone were to his assistant, Mr. Watson.",
+            "What did Alexander Graham Bell invent?",
+            listOf("The lightbulb", "The telephone", "The radio", "The airplane"),
+            1
+        ),
+        ReadingTask(
+            "Mount Everest is the highest mountain in the world above sea level. It is located in the Himalayas on the border between Nepal and China.",
+            "In which mountain range is Mount Everest located?",
+            listOf("The Andes", "The Alps", "The Himalayas", "The Rockies"),
+            2
+        ),
+        ReadingTask(
+            "Sharks are a group of fish known for their cartilaginous skeletons and multiple rows of sharp teeth. They have been in the oceans for over 400 million years.",
+            "How long have sharks been in the oceans?",
+            listOf("100 million years", "200 million years", "300 million years", "400 million years"),
+            3
+        ),
+        ReadingTask(
+            "The Olympic Games are a major international sporting event held every four years. They feature thousands of athletes from around the world competing in various sports.",
+            "How often are the Olympic Games held?",
+            listOf("Every year", "Every two years", "Every four years", "Every five years"),
+            2
+        ),
+        ReadingTask(
+            "Dolphins are highly intelligent marine mammals. They use echolocation to find food and communicate with each other using a variety of clicks and whistles.",
+            "What do dolphins use to find food?",
+            listOf("Their eyes only", "Echolocation", "Their sense of smell", "Electricity"),
+            1
+        ),
+        ReadingTask(
+            "The Eiffel Tower was completed in 1889 for the World's Fair in Paris. It was originally intended to be a temporary structure but became a global cultural icon.",
+            "In which city is the Eiffel Tower located?",
+            listOf("London", "New York", "Paris", "Berlin"),
+            2
+        ),
+        ReadingTask(
+            "The Sahara is the largest hot desert in the world. It covers much of North Africa and is known for its sand dunes and very high temperatures during the day.",
+            "Which part of Africa does the Sahara cover?",
+            listOf("South Africa", "East Africa", "West Africa", "North Africa"),
+            3
         )
     )
 
